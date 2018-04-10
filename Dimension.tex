@@ -4,6 +4,7 @@
 \usepackage{ngerman}
 \usepackage{lmodern}
 \usepackage{amsthm}
+\usepackage{amssymb}
 
 \newtheorem{satz}{Satz}
 \newtheorem{definition}[satz]{Definition}
@@ -22,18 +23,13 @@
 \section{Einleitung}
 \section{Dimension von Monomidealen}
 
-%Examples for me
-\begin{satz}
-Say something.
-\end{satz}
-
-\begin{satz}[Hilbert's Nullstellensatz]
-Der geht irgendwie.
-\end{satz}
-
-\begin{definition}[Buchberger Algorithmus]
-Der geht so und so. Laangweilig.
-\end{definition}
+	\begin{satz}
+	Sei \(\{0\} \neq I \subseteq k[X_{1},\ldots,X_{n}]\) ein Ideal und \(\preceq\) eine Monomialordnung auf \(Z^{n}_{\geq 0}\). Sei G eine Gröbnerbasis von I mit I = (G). Dann ist eine k-Basis von \(k[X_{1},\ldots,X_{n}]/I\) gegeben durch die Restklassen von \(X^{\alpha}\) mit
+	\begin{displaymath}
+	\alpha \in C(I) := \{\alpha \in Z^{n}_{\geq 0}\, |\; LT(g) \nmid X^{\alpha}\quad \forall g \in G\}.
+	\end{displaymath}
+	\end{satz}
+	
 
 \section{Dimension von beliebigen Idealen}
 \section{Literaturangabe}
