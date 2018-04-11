@@ -5,10 +5,15 @@
 \usepackage{lmodern}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage[paper=a4paper,left=25mm,right=25mm,top=25mm]{geometry}
 
 \newtheorem{satz}{Satz}
 \newtheorem{definition}[satz]{Definition}
+\newtheorem{lemma}[satz]{Lemma}
+\newtheorem{proposition}[satz]{Proposition}
 %Create a new theorem by writing \newtheorem{How to call this type of theorem}[satz]{What should be written}. Make sure to keep "satz" to ensure consecutive numeration.
+
+\newcommand*{\R}{k[X_{1},\ldots,X_{n}]}
 
 \title{Dimension von Varietäten}
 \date{\today}
@@ -23,12 +28,79 @@
 \section{Einleitung}
 \section{Dimension von Monomidealen}
 
+	\begin{lemma} \label{1.2.3}
+	Sei \(I \subseteq \R\) ein Ideal, das von einer Menge G von Monomen erzeugt wird. Dann liegt
+	ein Polynom \(f \in \R\) in I genau dann, wenn für jeden Term \(a_{j}X^{\alpha_{j}}\) von f ein
+	\(g \in G\) existiert, welches \(a_{j}X^{\alpha_{j}}\) teilt.
+	\end{lemma}
+
+	\begin{proof}[Beweis]
+	Sei \(f \in I\). Dann gilt \(f = \sum_{i=1}^{s} h_{i}g_{i}\) mit \(h_{i} \in R\) und \(g_{i}
+	\in G\). Damit hat jeder Term die Form \(h_{i}g_{i}\) und ist somit durch ein Element aus G
+	teilbar.
+	Sei nun andersherum \(f \in \R\) und für jeden Term \(a_{j}X^{\alpha_{j}}\) von f existiert ein
+	\(g \in G\), welches \(a_{j}X^{\alpha_{j}}\) teilt. Dann kann man f als Linearkombination von Elementen aus G schreiben und damit liegt f nach der Definition eines Ideals in I.
+	\end{proof}
+
+	
+	\begin{lemma} \label{1.2.4}
+	Sei \((g_{i})_{i \geq 1}\) eine Folge von Monomen in \(\R\) mit \(g_{1} \succeq g_{2} \succeq
+	\ldots\) für eine Monomialordnung \(\preceq\). Dann existiert ein \(r \in \mathbb{N}\) mit 
+	\(g_{n} = g_{r}\) für alle \(n \geq r\). 
+	\end{lemma}
+
+	\begin{proof}[Beweis]
+	Sei \(I = ((g_{i})_{i \geq 1})\), dann ist I ein Ideal. Nach dem Hilbert'schen Basissatz
+	wissen wir, dass I endlich erzeugt ist. Also existiert ein r, so dass die Menge \(G = \{g_{1},
+	\ldots, g_{r}\}\) I erzeugt. Für ein \(i \geq r\) und \(g_{i} \in I\) existiert ein
+	\(j \in \underline{r}\), so dass \(g_{j}\; | \;(g_{i}\) nach Lemma~\ref{1.2.3}. Also \(g_{i}
+	\succeq g_{j} \succeq g_{r}\). Andererseits gilt nach Voraussetzung, dass \(g_{i} \preceq g_{r}
+	\), also folgt \(g_{i} = g_{r}\).
+	\end{proof}
+
+	Lemma~\ref{1.2.4} sagt uns, dass jede absteigende Kette von Monomen stationär wird und insbesondere in jeder abzählbaren Menge von Monomen ein kleinstes Element existiert.
+	
+
+	\begin{proposition}[Divisionsalgorithmus] \label{1.2.5}
+	Sei \(\preceq\) eine Monomialordnung und \(f, f_{1}, \ldots, f_{s} \in \R\) nicht null. Dann
+	gilt \begin{displaymath} f = \sum_{i=1}^{s} h_{i}f_{i}\; + r, \end{displaymath} mit
+	\(r, h_{1}, \ldots, h_{s} \in \R\) und \(LT(h_{i}f_{i} \preceq LT(f)\) für alle \(h_{i} \neq 0
+	\) und \(r = 0\) oder kein Term von r wird durch ein \(LT(f_{i})\) geteilt für \(i \in
+	\underline{s}\).
+	\end{proposition}
+
+	\begin{proof}[Beweis]
+	\end{proof}
+
+
 	\begin{satz}
-	Sei \(\{0\} \neq I \subseteq k[X_{1},\ldots,X_{n}]\) ein Ideal und \(\preceq\) eine Monomialordnung auf \(Z^{n}_{\geq 0}\). Sei G eine Gröbnerbasis von I mit I = (G). Dann ist eine k-Basis von \(k[X_{1},\ldots,X_{n}]/I\) gegeben durch die Restklassen von \(X^{\alpha}\) mit
+	Sei \(\{0\} \neq I \subseteq \R\) ein Ideal und \(\preceq\) eine Monomialordnung auf
+	\(Z^{n}_{\geq 0}\). Sei G eine Gröbnerbasis von I mit I = (G). Dann ist eine k-Basis von 
+	\(\R/I\) gegeben durch die Restklassen von \(X^{\alpha}\) mit
 	\begin{displaymath}
-	\alpha \in C(I) := \{\alpha \in Z^{n}_{\geq 0}\, |\; LT(g) \nmid X^{\alpha}\quad \forall g \in G\}.
+	\alpha \in C(I) := \{\alpha \in Z^{n}_{\geq 0}\, |\; LT(g) \nmid X^{\alpha}\quad \forall g 
+	\in G\}.
 	\end{displaymath}
 	\end{satz}
+
+	\begin{proof}[Beweis]
+	Wir zeigen erst, dass die Monome mit Exponent aus C(I) ganz \(k[X_{1},\ldots,X_{n}]/I\) 
+	aufspannen und anschließend, dass kein Element aus I durch echte Linearkombination solcher
+	Monome dargestellt werden kann. \\
+	Sei \(G = \{f_{1}, \ldots, f_{s}\}\) und \(0 \neq f \in \R\). Dann ist
+	\(f = \sum_{i=1}^{s} h_{i}f_{i}\; + r = f' + r\) nach Proposition~\ref{1.2.5} mit \(r=0\) oder 
+	\(r = a_{l}X^{\alpha_{l}} + \ldots + a_{0}\) mit \(LT(f_{i}) \nmid X^{\alpha_{j}}\) 
+	für jedes \(i \in \underline{s}\) und \(j \in \underline{l}\). Also ist \(r\) eine
+	Linearkombination von Monomen \(X^{\alpha_{j}}\) mit \(\alpha_{j} \in C(I)\).
+	Es gilt außerdem \([f] = [r]\) in \(\R/(G)\) und damit erzeugen die
+	Monome mit \(\alpha \in C(I)\) den ganzen Restklassenring. \\
+	Angenommen es existiert \(f = f' + r \in I\) mit \(r \neq 0\) und f' und r wie oben.
+	Dann gilt \(0 \neq r = f - f'\). Da \(f \in I\) und \(f' \in I\) folgt
+	\(r \in I\), womit folgt, dass \((LT(r) \in (LT(f_{1}), \ldots, LT(f_{s}))\).
+	Nach Lemma~\ref{1.2.3} existiert dann ein \(f_{i}\) mit \(LT(f_{i})\; |\; LT(r)\). Dies ist ein 
+	Widerspruch, also folgt \(r = 0\) und die Restklassen von \(X^{\alpha}\) mit
+	\(\alpha \in C(I)\) sind linear unabhängig in \(\R/I\).
+	\end{proof}
 	
 
 \section{Dimension von beliebigen Idealen}
