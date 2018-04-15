@@ -5,7 +5,9 @@
 \usepackage{lmodern}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage[paper=a4paper,left=25mm,right=25mm,top=25mm]{geometry}
+\usepackage{mathtools}
 
 \newtheorem{satz}{Satz}
 \newtheorem{definition}[satz]{Definition}
@@ -14,6 +16,7 @@
 %Create a new theorem by writing \newtheorem{How to call this type of theorem}[satz]{What should be written}. Make sure to keep "satz" to ensure consecutive numeration.
 
 \newcommand*{\R}{k[X_{1},\ldots,X_{n}]}
+\newcommand*{\I}{I_{\leq s}}
 
 \title{Dimension von Varietäten}
 \date{\today}
@@ -39,7 +42,8 @@
 	\in G\). Damit hat jeder Term die Form \(h_{i}g_{i}\) und ist somit durch ein Element aus G
 	teilbar.
 	Sei nun andersherum \(f \in \R\) und für jeden Term \(a_{j}X^{\alpha_{j}}\) von f existiert ein
-	\(g \in G\), welches \(a_{j}X^{\alpha_{j}}\) teilt. Dann kann man f als Linearkombination von Elementen aus G schreiben und damit liegt f nach der Definition eines Ideals in I.
+	\(g \in G\), welches \(a_{j}X^{\alpha_{j}}\) teilt. Dann kann man f als Linearkombination von 
+	Elementen aus G schreiben und damit liegt f nach der Definition eines Ideals in I.
 	\end{proof}
 
 	
@@ -58,7 +62,8 @@
 	\), also folgt \(g_{i} = g_{r}\).
 	\end{proof}
 
-	Lemma~\ref{1.2.4} sagt uns, dass jede absteigende Kette von Monomen stationär wird und insbesondere in jeder abzählbaren Menge von Monomen ein kleinstes Element existiert.
+	Lemma~\ref{1.2.4} sagt uns, dass jede absteigende Kette von Monomen stationär wird und
+	insbesondere in jeder abzählbaren Menge von Monomen ein kleinstes Element existiert.
 	
 
 	\begin{proposition}[Divisionsalgorithmus] \label{1.2.5}
@@ -67,13 +72,28 @@
 	\(r, h_{1}, \ldots, h_{s} \in \R\) und \(LT(h_{i}f_{i} \preceq LT(f)\) für alle \(h_{i} \neq 0
 	\) und \(r = 0\) oder kein Term von r wird durch ein \(LT(f_{i})\) geteilt für \(i \in
 	\underline{s}\).
-	\end{proposition}
+	\end{proposition}x
 
 	\begin{proof}[Beweis]
+	Wir beweisen diese Proposition per TODO downward Induktion über LT(f). \\
+	Beim Induktionsschritt unterscheiden wir drei Fälle:\\
+	Sei f konstant, dann gilt \(f = \sum_{i=1}^{s} 0f_{i}\; + r\) mit \(r := f\) und \(h_{i} := 0\). \\
+	Falls ein \(i \in \underline{s}\) existiert, so dass \(LT(f_{i})\;| \; LT(f)\), setzen wir
+	\begin{displaymath} f^{(1)} := f - \frac{LT(f)}{LT(f_{i})}f_{i}.\end{displaymath} Dann gilt
+	\( f = f^{(1)} + \frac{LT(f)}{LT(f_{i})}f_{i} \) mit \(h_{i} = \frac{LT(f)}{LT(f_{i})}\) und 
+	\(LT(h_{i}f_{i}) = LT(f) \preceq LT(f).\) \\
+	Falls kein solches \(f_{i}\) existiert, schreiben wir \begin{displaymath} f^{(1)} := f -
+	LT(f). \end{displaymath} Und \(f = f^{(1)} + LT(f)\) mit \(r = LT(f)\) erfüllt die Bedingungen 
+	(insbesondere, dass kein Term von r durch ein \(LT(f_{i})\) geteilt wird). \\
+	Führe den Schritt nun induktiv auf \(f^{(1)}\) durch bis \(f^{(j)} = 0\) und bestimme
+	\(h_{1}, \ldots, h_{s}, r\) durch Rückwärtseinsetzen.
 	\end{proof}
 
+	
+	Evtl. Beispiel, dass diese Form nicht eindeutig ist.
 
-	\begin{satz}
+
+	\begin{satz} \label{1.2.8}
 	Sei \(\{0\} \neq I \subseteq \R\) ein Ideal und \(\preceq\) eine Monomialordnung auf
 	\(Z^{n}_{\geq 0}\). Sei G eine Gröbnerbasis von I mit I = (G). Dann ist eine k-Basis von 
 	\(\R/I\) gegeben durch die Restklassen von \(X^{\alpha}\) mit
@@ -97,12 +117,116 @@
 	Angenommen es existiert \(f = f' + r \in I\) mit \(r \neq 0\) und f' und r wie oben.
 	Dann gilt \(0 \neq r = f - f'\). Da \(f \in I\) und \(f' \in I\) folgt
 	\(r \in I\), womit folgt, dass \((LT(r) \in (LT(f_{1}), \ldots, LT(f_{s}))\).
-	Nach Lemma~\ref{1.2.3} existiert dann ein \(f_{i}\) mit \(LT(f_{i})\; |\; LT(r)\). Dies ist ein 
-	Widerspruch, also folgt \(r = 0\) und die Restklassen von \(X^{\alpha}\) mit
+	Nach Lemma~\ref{1.2.3} existiert dann ein \(f_{i}\) mit \(LT(f_{i})\; |\; LT(r)\). Dies ist 
+	ein Widerspruch, also folgt \(r = 0\) und die Restklassen von \(X^{\alpha}\) mit
 	\(\alpha \in C(I)\) sind linear unabhängig in \(\R/I\).
 	\end{proof}
+
+	Was sagt uns Beispiel 1.2.9?? TODO
+
+	Bildchen mit Punkten und Erklärung dazu.
+	Wir betrachten das \''Wachstum\'' von \(\R/I\)
+
+	\begin{definition} \label{1.2.11}
+	Sei \(I \subseteq \R\) ein Ideal und \(s \in \mathbb{N}_{0}\). Dann definiere \(I_{\leq s} :=
+	I \cap \R_{\leq s}\). Nun gilt, dass \(\R_{\leq s}\) ein endlich dimensionaler Vektorraum über
+	k  mit \(I_{\leq s}\) als Teilraum ist. Wir können die Funktion \begin{displaymath}
+	\prescript{a}{}{HF}_{I} : \mathbb{N}_{0} \rightarrow \mathbb{N}_{0}, \quad s \mapsto
+	dim_{k}(\R_{\leq s}/I_{\leq s})	\end{displaymath} definieren, die (affine) Hilbertfunktion
+	von I genannt wird.
+	\end{definition}
+
+
+	\paragraph{Ein paar Beispiele}
+	\begin{itemize}
+	\item Sei \(I = \R\). Dann ist
+		\begin{align*}
+			\prescript{a}{}{HF}_{I}(s) &= dim_{k}(\R_{\leq s}/I_{\leq s}) \\
+			&= dim_{k}(\R_{\leq s}/\R_{\leq s}) \\
+			&= dim_{k}(\emptyset) \\
+			&= 0
+		\end{align*}
+	 für alle \(s \in \mathbb{N}_{0}\).  
+	\item Sei nun \(I = \{0\}\). Dann ist
+		\begin{align*}
+			\prescript{a}{}{HF}_{I}(s) &= dim_{k}(\R_{\leq s}/I_{\leq s}) \\
+			&= dim_{k}(\R_{\leq s}) \\
+			&= |\{ X^{\alpha} \in Z^{n}_{\geq 0}\, |\; |\alpha| \leq s\}| \\
+			&= \sum_{i=1}^{s} |\{ X^{\alpha} \in Z^{n}_{\geq 0}\, |\; |\alpha| = i\}| \\
+			&= TODO \\
+			&= \sum_{i=1}^{s} \binom{n-1+k}{k} \\
+			&= \binom{s+n}{s} = \binom{s+n}{n} \\
+			&= \frac{1}{n!}(s+n)(s+n-1)\cdots (s+1) \\
+			&= \frac{1}{n!}s^{n} + \frac{1}{n!}\binom{n+1}{2}s^{n-1} + \cdots + 1. \\
+		\end{align*}
+	Zu beachten ist hier, dass der Grad der Hilbertfunktion n ist, also der Dimension von \(\R/I\)
+	entspricht. Dies werden wir im Folgenden näher betrachten.
+	\item Einfaches Beispiel aus CLOS. TODO
+	\end{itemize}
 	
 
+	\begin{lemma}[Macaulay] \label{1.2.13}
+	Sei \(\preceq\) eine gradierte lexikographische Monomialordnung und \(I \subseteq \R\) ein
+	Ideal. Dann ist \(\prescript{a}{}{HF}_{I}(s) = \prescript{a}{}{HF}_{LT(I)}(s)\) für alle
+	\(s \in \mathbb{N}_{0}\).
+	\end{lemma}
+
+	
+	\begin{proof}[Beweis]
+	Zunächst definieren wir uns die Menge
+	\begin{displaymath}
+		D := \{LM(f)\; |\; 0 \neq f \in \I\} = \{LM(f_{1}), \ldots, LM(f_{m})\}
+	\end{displaymath}
+	für ein \(m \in \mathbb{N}_{0}\) und \(f_{i} \in \I\) für alle \(i \in \underline{m}\). Die
+	zweite Gleichheit gilt aufgrund der Endlichkeit von \(\I\).
+	Wir betrachten außerdem die Menge
+	\begin{displaymath} B := \{f_{1}, \ldots, f_{m}\}. \end{displaymath}
+	Die Elemente aus B entsprechen denen aus der Menge D.
+
+	Wir zeigen nun, dass D eine k-Basis von \((LT(I))_{\leq s}\) und B eine k-Basis von \(\I\) ist.
+	Dann folgt nämlich, dass die beiden Mengen die selbe Kardinalität und die erzeugten
+	Vektorräume die selbe Dimension haben, womit das Lemma von Macaulay gezeigt ist.
+
+	Als Erstes wollen wir zeigen, dass D eine k-Basis von \((LT(I))_{\leq s}\) ist. Da D die
+	Leitmonome der Elemente aus I enthält, ist D offensichtlich linear unabhängig.
+	Wir zeigen also, dass das Erzeugnis von D ganz \((LT(I))_{\leq s}\) aufspannt: Dazu
+	betrachten wir ein beliebiges \(g \in (LT(I))_{\leq s}\). Es gilt \(deg(g) \leq s\) und da D
+	alle \(LT(I)\) mit Grad \(\leq s\) enthält, kann man schreiben 
+	\(g = \sum_{i=1}^{m} h_{i}LT(f_{i})\) mit \(h_{i} \in k\) für alle \(i \in \underline{m}\).
+	Also ist \(g \in (D)\) und damit spannt D ganz \((LT(I))_{\leq s}\) auf. Es folgt also, dass
+	D eine k-Basis von \((LT(I))_{\leq s}\) ist.
+	
+	Jetzt zeigen wir, dass B eine k-Basis von \(\I\) ist. Die lineare Unabhängigkeit der einzelnen 
+	Elemente können wir durch einen einfachen Widerspruchsbeweis zeigen:
+	Sei \(0 = \sum_{i=1}^{m} h_{i}f_{i}\), \(h_{i} \in k\) für alle \(i \in \underline{m}\),
+	und es existiert ein \(i \in \underline{m}\) mit \(h_{i} \neq 0\).
+	Da \(f_{i} \neq 0\) ist, existiert mindestens ein \(i \neq j \in \underline
+	{m}\) mit \(h_{j} \neq 0\). Ohne Beschränkung der Allgemeinheit kann man annehmen, dass genau
+	zwei Koeffizienten \(\neq 0\) existieren. Dann gilt
+	\begin{align*}
+		0 &= \sum_{i=1}^{m} h_{i}f_{i} = h_{i}f_{i} + h_{j}f_{j} \\
+		&\Leftrightarrow -h_{j}f_{j} = h_{i}f_{i} \\
+		&\Leftrightarrow -\frac{h_{j}}{h_{i}} f_{j} = f_{i}.
+	\end{align*}
+	Also gilt \(LM(f_{j}) = LM(f_{i})\), dies ist aber ein Widerspruch zur Definition der Menge B,
+	also ist B linear unabhängig. \\
+	Wir wählen nun ein \(g \in \I\). Dann existiert ein \(i \in \underline{m}\) mit \(LM(f) =
+	LM(f_{i})\), weil \(f \in \I\), also auch \(LM(f) \in D\). Wir definieren
+	\begin{align*}
+		f^{(1)} := f - \frac{LM(f)}{LM(f_{i})}f_{i} \\
+		\Leftrightarrow f = f^{(1)} + \frac{LM(f)}{LM(f_{i})}f_{i}.
+	\end{align*}
+	Es gilt \(LM(f) = LM(\frac{LM(f)}{LM(f_{i})}f_{i})\), also folgt \(LM(f^{(1)}) \preceq LM(f)\),
+	da wir die Monome unter gradierter lexikographischer Ordnung betrachten.
+	Für \(f^{(1)}\) existiert wie für f wieder ein \(j \in \underline{m}\) mit \(LM(f) =
+	LM(f_{j})\), da \(f^{(1)} \in \I\). Wir definieren \(f^{(2)}\) analog zu oben und es
+	folgt \(LM(f^{(2)}) \preceq LM(f^{(1)})\). Das machen wir induktiv weiter bis \(f^{(l)} = 0\)  
+	für ein \(l \in \mathbb{N}\).
+	Der Algorithmus endet nach endlich vielen Iterationen, da \(LM(f) \succeq LM(f^{(1)}) \succeq LM(f^{(2)}) \succeq \cdots\).
+	Also kann man g als k-Linearkombination von Elementen aus B schreiben, damit spannt B ganz \(\I\) und B ist eine Basis von \(\I\).
+	\end{proof}
+	
+	
 \section{Dimension von beliebigen Idealen}
 \section{Literaturangabe}
 
