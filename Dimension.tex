@@ -6,6 +6,7 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage[paper=a4paper,left=25mm,right=25mm,top=25mm]{geometry}
+\usepackage{mathtools}
 
 \newtheorem{satz}{Satz}
 \newtheorem{definition}[satz]{Definition}
@@ -58,7 +59,8 @@
 	\), also folgt \(g_{i} = g_{r}\).
 	\end{proof}
 
-	Lemma~\ref{1.2.4} sagt uns, dass jede absteigende Kette von Monomen stationär wird und insbesondere in jeder abzählbaren Menge von Monomen ein kleinstes Element existiert.
+	Lemma~\ref{1.2.4} sagt uns, dass jede absteigende Kette von Monomen stationär wird und
+	insbesondere in jeder abzählbaren Menge von Monomen ein kleinstes Element existiert.
 	
 
 	\begin{proposition}[Divisionsalgorithmus] \label{1.2.5}
@@ -67,13 +69,27 @@
 	\(r, h_{1}, \ldots, h_{s} \in \R\) und \(LT(h_{i}f_{i} \preceq LT(f)\) für alle \(h_{i} \neq 0
 	\) und \(r = 0\) oder kein Term von r wird durch ein \(LT(f_{i})\) geteilt für \(i \in
 	\underline{s}\).
-	\end{proposition}
+	\end{proposition}x
 
 	\begin{proof}[Beweis]
+	Wir beweisen diese Proposition per TODO downward Induktion über LT(f). \\
+	Beim Induktionsschritt unterscheiden wir drei Fälle:\\
+	Sei f konstant, dann gilt \(f = \sum_{i=1}^{s} 0f_{i}\; + r\) mit \(r := f\) und \(h_{i} := 0\). \\
+	Falls ein \(i \in \underline{s}\) existiert, so dass \(LT(f_{i})\;| \; LT(f)\), setzen wir
+	\begin{displaymath} f^{(1)} := f - \frac{LT(f)}{LT(f_{i})}f_{i}.\end{displaymath} Dann gilt
+	\( f = f^{(1)} + \frac{LT(f)}{LT(f_{i})}f_{i} \) mit \(h_{i} = \frac{LT(f)}{LT(f_{i})}\) und 
+	\(LT(h_{i}f_{i}) = LT(f) \preceq LT(f).\) \\
+	Falls kein solches \(f_{i}\) existiert, schreiben wir \begin{displaymath} f^{(1)} := f -
+	LT(f). \end{displaymath} Und \(f = f^{(1)} + LT(f)\) mit \(r = LT(f)\) erfüllt die Bedingungen (insbesondere, dass kein Term von r durch ein \(LT(f_{i})\) geteilt wird). \\
+	Führe den Schritt nun induktiv auf \(f^{(1)}\) durch bis \(f^{(j)} = 0\) und bestimme
+	\(h_{1}, \ldots, h_{s}, r\) durch Rückwärtseinsetzen.
 	\end{proof}
 
+	
+	Evtl. Beispiel, dass diese Form nicht eindeutig ist.
 
-	\begin{satz}
+
+	\begin{satz} \label{1.2.8}
 	Sei \(\{0\} \neq I \subseteq \R\) ein Ideal und \(\preceq\) eine Monomialordnung auf
 	\(Z^{n}_{\geq 0}\). Sei G eine Gröbnerbasis von I mit I = (G). Dann ist eine k-Basis von 
 	\(\R/I\) gegeben durch die Restklassen von \(X^{\alpha}\) mit
@@ -101,7 +117,20 @@
 	Widerspruch, also folgt \(r = 0\) und die Restklassen von \(X^{\alpha}\) mit
 	\(\alpha \in C(I)\) sind linear unabhängig in \(\R/I\).
 	\end{proof}
-	
+
+	Was sagt uns Beispiel 1.2.9?? TODO
+
+	Bildchen mit Punkten und Erklärung dazu.
+	Wir betrachten das \''Wachstum\'' von \(\R/I\)
+
+	\begin{definition} \label{1.2.11}
+	Sei \(I \subseteq \R\) ein Ideal und \(s \in \mathbb{N}_{0}\). Dann definiere \(I_{\leq s} :=
+	I \cap \R_{\leq s}\). Nun gilt, dass \(\R_{\leq s}\) ein endlich dimensionaler Vektorraum über
+	k  mit \(I_{\leq s}\) als Teilraum ist. Wir können die Funktion \begin{displaymath}
+	\prescript{a}{}{HF}_{I} : \mathbb{N}_{0} \rightarrow \mathbb{N}_{0}, \quad s \mapsto
+	dim_{k}(\R_{\leq s}/I_{\leq s})	\end{displaymath} definieren, die (affine) Hilbertfunktion
+	von I genannt wird.
+	\end{definition}
 
 \section{Dimension von beliebigen Idealen}
 \section{Literaturangabe}
