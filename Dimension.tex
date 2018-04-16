@@ -8,6 +8,7 @@
 \usepackage{amsmath}
 \usepackage[paper=a4paper,left=25mm,right=25mm,top=25mm]{geometry}
 \usepackage{mathtools}
+\usepackage{graphicx}
 
 \newtheorem{satz}{Satz}
 \newtheorem{definition}[satz]{Definition}
@@ -134,6 +135,17 @@
 	
 	Was sagt uns Beispiel 1.2.9?? TODO
 
+	\begin{center}
+	\includegraphics[width=.75\linewidth]{Dots.png}
+	\end{center}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.75\linewidth]{Dots.png}
+		\caption{Anschauliche Darstellung von \(\R/I\) aus \cite{CLOS}}
+		\label{dots}
+	\end{figure}
+	
 	Bildchen mit Punkten und Erklärung dazu.
 	Wir betrachten das \''Wachstum\'' von \(\R/I\)
 
@@ -329,6 +341,12 @@ C(I)=\bigcup\limits_{(J,\tau)\in \chi}
 		Wirtschaftswissenschaftler}.
 	\newblock 2.~Aufl.
 	\newblock Physica-Verlag, 2004
+
+	\bibitem{CLOS}
+	\textsc{Cox}, David; \textsc{Little}, John; \textsc{O'Shea}, Donal:
+	\newblock \emph{Ideals, Varieties, and Algorithms}.
+	\newblock Third Edition
+	\newblock Springer-Verlag, 2007
 \end{thebibliography}
 
 
