@@ -37,10 +37,46 @@
 \begin{document}
 
 \maketitle
-\tableofcontents
+%\tableofcontents
 
 \section{Abstract}
 \section{Einleitung}
+	
+	Sei \(S \subseteq \R\) eine Teilmenge eines Polynomrings über einem algebraisch abgeschlossenen
+	Körper k. Dann ist \(V(S) := \{x \in k^n\,|\, f(x)=0\; \forall f \in S\}\) eine Varietät bzw.
+	algebraische Menge. Andersherum nennt man für eine Teilmenge \(V \subseteq k^{n}\) das 
+	Ideal \(I(V) := \{f \in \R\,|\, f(x)=0\; \forall x\in V\}\) das Verschwindungsideal von V.
+	Mit Hilfe von Hilbert's Nullstellensatz können wir eine Bijektion von
+	der Menge der Wurzelideale\footnote{Ein Wurzelideal \(\sqrt{I}\) ist ein Ideal für welches gilt: Sei \(f^{m} \in \sqrt{I}\), dann ist auch \(f \in \sqrt{I}\).} aus \(\R\) auf die Menge der Varietäten definieren. Dies gibt uns
+	die Möglichkeit, unser Wissen über Ideale auf Varietäten zu übertragen. Wir haben schon
+	gesehen, dass z.B. das Verschwindungsideal von Vereinigungen von Varietäten dem Schnitt der
+	Verschwindungsideale der einzelnen Varietäten entspricht.
+	In Abbildung~\ref{circle} und~\ref{paraboloid} sind beispielhaft zwei Varietäten dargestellt.
+
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=.75\linewidth]{circle.png}
+		\caption{Die Varietät \(V(X^2 + Y^2 -1)\) aus \cite{CLOS}}
+		\label{circle}
+	\end{figure}
+
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=.5\linewidth]{paraboloid.png}
+		\caption{Das elliptische Paraboloid \(V(Z - X^2 -Y)\) aus \cite{CLOS}}
+		\label{paraboloid}
+	\end{figure}
+
+	Im Folgenden interessieren wir uns für die Dimension einer Varietät. Intuitiv würde man
+	die Varietät aus Abb.~\ref{circle} eindimensional und die aus Abb.~\ref{paraboloid}
+	zweidimensional nennen. Bevor wir mit der - etwas längeren - mathematischen Definition einer
+	der Dimension einer Varietät beginnen, betrachten wir zunächst einen etwas leichteren Fall.
+	
+	Sei \(I := (Y^2Z^3, X^5Z^4, X^2YZ^2)\) ein Monomialideal in \(k[X,Y,Z]\).
+
+	
+	für Ideal aus 439 (für Monomialideale).
+	Ganz am Ende nochmal auf Kreis und Paraboloid eingehen!
 	
 	\colorbox{yellow}{Die intuitive Dimension einer Varietät nach CLOS S.439.
 	Geschichtliches. Warum will man überhaupt etwas über die Dimension von Varietäten wissen.
@@ -145,7 +181,7 @@
 	\end{proof}
 	
 
-	\begin{figure}[h]
+	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=.75\linewidth]{Dots.png}
 		\caption{Anschauliche Darstellung von \(\R/I\) aus \cite{CLOS}}
