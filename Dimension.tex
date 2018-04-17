@@ -70,21 +70,39 @@
 	Im Folgenden interessieren wir uns für die Dimension einer Varietät. Intuitiv würde man
 	die Varietät aus Abb.~\ref{circle} eindimensional und die aus Abb.~\ref{paraboloid}
 	zweidimensional nennen. Bevor wir mit der - etwas längeren - mathematischen Definition einer
-	der Dimension einer Varietät beginnen, betrachten wir zunächst einen etwas leichteren Fall.
-	
-	Sei \(I := (Y^2Z^3, X^5Z^4, X^2YZ^2)\) ein Monomialideal in \(k[X,Y,Z]\).
+	der Dimension einer Varietät beginnen, betrachten wir zunächst einen etwas leichteren Fall 
+	aus \cite{CLOS}.
+	Für das Beispiel brauchen wir die Ebene \(H_x := \{(x,y,z) \in k^3\;|\; x = 0\}\) und die
+	Gerade \(H_{xy} := \{(x,y,z) \in k^3\;|\; x=0 \wedge y=0\}\).
 
+	Überlegen wir uns nun die Dimension von der Varietät des Monomialideals
+	\(I := (Y^2Z^3, X^5Z^4, X^2YZ^2)\) in \(k[X,Y,Z]\). Dann wissen wir
+	\begin{align*}
+		V(I) &= V(Y^2Z^3, X^5Z^4, X^2YZ^2) \\
+		&= V(Y^2Z^3) \cap V(X^5Z^4) \cap V(X^2YZ^2) \\
+		&= (H_y \cup H_z) \cap (H_x \cup H_z) \cap (H_x \cup H_y \cup H_z) \\
+		&= H_z \cup (H_y \cap H_x \cap (H_x \cup H_y))
+	\end{align*}
+	Der Schnitt der zwei Ebenen \(H_x\) und \(H_y\) ist die Gerade \(H_{xy}\) und
+	\(H_{xy} \cap (H_x \cup H_y) = H_{xy}\), also folgt
+	\begin{displaymath}
+		V(I) = H_z \cup H_{xy}.
+	\end{displaymath}
+	Die Varietät besteht also aus der xy-Ebene und einer Geraden, die darauf senkrecht steht.
+	Es gibt also einen Teil, der intuitiv eindimensional erscheint und einen zweidimensionalen.
+	Später werden wir sehen, dass die Dimension einer Varietät die maximale Dimension der einzelnen
+	Teile der Varietät ist - für das Beispiel ist sie also 2.
 	
-	für Ideal aus 439 (für Monomialideale).
+	\colorbox{yellow}{
 	Ganz am Ende nochmal auf Kreis und Paraboloid eingehen!
-	
-	\colorbox{yellow}{Die intuitive Dimension einer Varietät nach CLOS S.439.
 	Geschichtliches. Warum will man überhaupt etwas über die Dimension von Varietäten wissen.
 	Wo könnte das nützlich sein?}
 
 \section{Dimension von Monomidealen}
 	
-	\colorbox{yellow}{Ein paar Worte}
+	Wir beginnen damit, für ein Ideal \(I\) eine möglichst einfache k-Basis von \(\R/I\) zu finden.
+	Damit der Beweis unseres ersten Satzes nicht zu lang wird, müssen wir allerdings noch ein
+	bisschen Vorarbeit leisten.
 
 	\begin{lemma} \label{1.2.3}
 	Sei \(I \subseteq \R\) ein Ideal, das von einer Menge G von Monomen erzeugt wird. Dann liegt
@@ -100,9 +118,6 @@
 	\(g \in G\), welches \(a_{j}X^{\alpha_{j}}\) teilt. Dann kann man f als Linearkombination von 
 	Elementen aus G schreiben und damit liegt f nach der Definition eines Ideals in I.
 	\end{proof}
-
-	
-	\colorbox{yellow}{Ein paar Worte}
 
 
 	\begin{lemma} \label{1.2.4}
@@ -120,8 +135,8 @@
 	\), also folgt \(g_{i} = g_{r}\).
 	\end{proof}
 
-
-	\colorbox{yellow}{Lemma~\ref{1.2.4} sagt uns, dass jede absteigende Kette von Monomen stationär wird und insbesondere in jeder abzählbaren Menge von Monomen ein kleinstes Element existiert.}
+	Lemma~\ref{1.2.4} sagt uns insbesondere, dass in jeder abzählbaren Menge von Mnomen ein
+	kleinstes Element existiert.
 	
 
 	\begin{proposition}[Divisionsalgorithmus] \label{1.2.5}
@@ -133,7 +148,7 @@
 	\end{proposition}
 
 	\begin{proof}[Beweis]
-	Wir beweisen diese Proposition per TODO downward Induktion über LT(f). \\
+	Wir beweisen diese Proposition per \colorbox{yellow}{Rückwärtsinduktion über LT(f) beginnend mit dem größten Term.} \\
 	Beim Induktionsschritt unterscheiden wir drei Fälle:\\
 	Sei f konstant, dann gilt \(f = \sum_{i=1}^{s} 0f_{i}\; + r\) mit \(r := f\) und \(h_{i} := 0\). \\
 	Falls ein \(i \in \underline{s}\) existiert, so dass \(LT(f_{i})\;| \; LT(f)\), setzen wir
@@ -147,16 +162,16 @@
 	\(h_{1}, \ldots, h_{s}, r\) durch Rückwärtseinsetzen.
 	\end{proof}
 
-	
-	\colorbox{yellow}{Evtl. Beispiel, dass diese Form nicht eindeutig ist.}
+
+	Jetzt kommen wir zu dem ersten Satz, der direkt für die Dimension von Varietäten wichtig ist.
 
 
 	\begin{satz} \label{1.2.8}
 	Sei \(\{0\} \neq I \subseteq \R\) ein Ideal und \(\preceq\) eine Monomialordnung auf
-	\(Z^{n}_{\geq 0}\). Sei G eine Gröbnerbasis von I mit I = (G). Dann ist eine k-Basis von 
+	\(\mathbb{N}^{n}_{0}\). Sei G eine Gröbnerbasis von I mit I = (G). Dann ist eine k-Basis von 
 	\(\R/I\) gegeben durch die Restklassen von \(X^{\alpha}\) mit
 	\begin{displaymath}
-	\alpha \in C(I) := \{\alpha \in \mathbb{N}^{n}_{0} |\; LT(g) \nmid X^{\alpha}\quad \forall g 
+	\alpha \in C(I) := \{\alpha \in \mathbb{N}^{n}_{0}\; |\;\; LT(g) \nmid X^{\alpha}\; \forall g 
 	\in G\}.
 	\end{displaymath}
 	\end{satz}
@@ -180,6 +195,11 @@
 	\(\alpha \in C(I)\) sind linear unabhängig in \(\R/I\).
 	\end{proof}
 	
+	
+	In Abb.~\ref{dots} sieht man ein Koordinatensystem von \(\mathbb{N}^{2}_{0}\). Jeder Punkt
+	\(\alpha\) repräsentiert dabei ein Monom \(X^{\alpha}\) für welches gilt \(X^{\alpha} = LM(f)\)
+	für ein \(f \in \R\). Die Punkte in dem grau hinterlegten Teil stehen nun für die Monome, die
+	Elemente aus \(LM(I)\) sind. Die unausgefüllten Punkte stehen für Monome aus C(I).
 
 	\begin{figure}[ht]
 		\centering
@@ -187,12 +207,6 @@
 		\caption{Anschauliche Darstellung von \(\R/I\) aus \cite{CLOS}}
 		\label{dots}
 	\end{figure}
-	
-	\colorbox{yellow}{Bildchen mit Punkten und Erklärung dazu.
-	In Abbildung~\ref{dots} ist der graue Teil...}
-
-	
-	\colorbox{yellow}{Ein paar Worte}
 
 
 	\begin{definition} \label{1.2.11}
