@@ -272,14 +272,22 @@
 			&= \frac{1}{n!}(s+n)(s+n-1)\cdots (s+1) \\
 			&= \frac{1}{n!}s^{n} + \frac{1}{n!}\binom{n+1}{2}s^{n-1} + \cdots + 1. \\
 		\end{align*}
-	\colorbox{yellow}{Zu beachten ist hier, dass der Grad der Hilbertfunktion n ist, also der Dimension von \(\R/I\)
-	entspricht. Dies werden wir im Folgenden näher betrachten.}
-	\item E\colorbox{yellow}{Text zu Abbildung~\ref{dots}}
+	\item Gehen wir noch einmal kurz zu Abb.~\ref{dots} zurück. Hier ist betrachten wir ein 
+	Ideal I aus \(k[X,Y]\). Es gilt \(\prescript{a}{}{HF}_{I}(6) = 36\),
+	\(\prescript{a}{}{HF}_{I}(8) = 40\) und \(\prescript{a}{}{HF}_{I}(9) = 42\).
+	Für \(s \geq 7\) gilt \(\prescript{a}{}{HF}_{I}(s+1) = \prescript{a}{}{HF}_{I}(s) + 2\),
+	die Funktion wächst also linear. Man kann die Hilbertfunktion sogar direkt an der Abbildung
+	ablesen: Für \(s \geq 7\) gilt \(\prescript{a}{}{HF}_{I}(s) = 2*s + 22\).
 	\end{itemize}
-	
 
-	\colorbox{yellow}{Was jetzt kommt und wieso}
+	Überlegen wir uns kurz den Zusammenhang zwischen der \glqq gefühlten\grqq  Dimension einer Varietät und
+	dem Grad der Hilbertfunktion. Im ersten Beispiel ist \(V(I) = \{0\}\) und die gefühlte
+	Dimension ist 0. Dies entspricht auch dem Grad der Hilbertfunktion. Im zweiten Beispiel ist
+	\(V(I) = k^n\) mit Dimension n und auch die Hilbertfunktion hat den Grad n. Für die Varietät 
+	aus Abb.~\ref{dots} gilt \(V(I) = \{(x,y) \in k^2\;|\; y = 0\} = H_y\). Also ist \(V(I)\)
+	intuitiv eindimensional, was ebenfalls dem Grad der Hilbertfunktion entspricht.
 
+	Diese Vermutungen wollen wir jetzt beweisen.
 
 	\begin{lemma}[Macaulay] \label{1.2.13}
 	Sei \(\preceq\) eine gradierte lexikographische Monomialordnung und \(I \subseteq \R\) ein
