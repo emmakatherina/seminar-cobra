@@ -94,7 +94,7 @@
 	Später werden wir sehen, dass die Dimension einer Varietät die maximale Dimension der einzelnen
 	Teile der Varietät ist - für das Beispiel ist sie also 2.
 
-\section{Dimension von Monomidealen}
+\section{Suchen einer k-Basis von \(\R/I\)}
 	
 	Wir beginnen damit, für ein Ideal \(I\) eine möglichst einfache k-Basis von \(\R/I\) zu finden.
 	Damit der Beweis unseres ersten Satzes nicht zu lang wird, müssen wir allerdings noch ein
@@ -161,7 +161,6 @@
 
 	Jetzt kommen wir zu dem ersten Satz, der direkt für die Dimension von Varietäten wichtig ist.
 
-
 	\begin{satz} \label{1.2.8}
 	Sei \(\{0\} \neq I \subseteq \R\) ein Ideal und \(\preceq\) eine Monomialordnung auf
 	\(\mathbb{N}^{n}_{0}\). Sei G eine Gröbnerbasis von I mit I = (G). Dann ist eine k-Basis von 
@@ -204,6 +203,8 @@
 		\label{dots}
 	\end{figure}
 
+
+\section{Die Hilbertfunktion}
 
 	\begin{definition} \label{1.2.11}
 	Sei \(I \subseteq \R\) ein Ideal und \(s \in \mathbb{N}_{0}\). Dann definiere \(I_{\leq s} :=
@@ -343,10 +344,7 @@
 	Also kann man g als k-Linearkombination von Elementen aus B schreiben, damit spannt B ganz \(I\) und B ist eine Basis von \(I\).
 	\end{proof}
 
-
-\section{Dimension von beliebigen Idealen}
-
-\subsection{Das Hilbert-Polynom}
+\section{Das Hilbertpolynom und die Dimension einer Varietät}
 
 Im folgenden sei $n \in \mathrm{N}$ beliebig aber fest.
 
@@ -550,6 +548,8 @@ $c)$ Behauptung: Sei $V\subset k^n$ algebraisch und $W\subseteq V$ eine abgeschl
 \end{proof}
 Daraus lässt sich erkennen, dass die obige Definition der Dimension einer affine-Varietät und seinem Analogon für $k$-Vektorräume gewisse Ähnlichkeiten aufweisen, denn das obige Ergebnis für $k$-Vektorräume bekanntlich gilt. Die folgende Proposition jedoch hebt den ersten Unterschied zwischen diesen beiden Strukturen hervor und lautet
 
+\section{Weitere Folgerungen}
+
 \begin{proposition}
 	Sei $V\subseteq k^n$ algebraisch und $V=\bigcup\limits_{i\in\underline{r}}\indx{V}{i}$ eine Zerlegung in irreduziblen Komponenten (vgl. Proposition 1.1.11). Dann gilt
 	\begin{displaymath}
@@ -661,8 +661,6 @@ Schreibt man $F$ wie folgt,
 	Also unsere Annahme muss falsch gewesen sein und es gilt $dim(V)>dim(W)$
 \end{proof}
 
-
-\section{Was wissen wir jetzt und was haben wir daraus gelernt?}
 
 \begin{thebibliography}{99}
 	\bibitem{Heu03}
