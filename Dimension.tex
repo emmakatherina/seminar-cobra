@@ -93,11 +93,6 @@
 	Es gibt also einen Teil, der intuitiv eindimensional erscheint und einen zweidimensionalen.
 	Später werden wir sehen, dass die Dimension einer Varietät die maximale Dimension der einzelnen
 	Teile der Varietät ist - für das Beispiel ist sie also 2.
-	
-	\colorbox{yellow}{
-	Ganz am Ende nochmal auf Kreis und Paraboloid eingehen!
-	Geschichtliches. Warum will man überhaupt etwas über die Dimension von Varietäten wissen.
-	Wo könnte das nützlich sein?}
 
 \section{Dimension von Monomidealen}
 	
@@ -149,7 +144,7 @@
 	\end{proposition}
 
 	\begin{proof}[Beweis]
-	Wir beweisen diese Proposition per \colorbox{yellow}{Rückwärtsinduktion über LT(f) beginnend mit dem größten Term.} \\
+	Wir beweisen diese Proposition per Rückwärtsinduktion über LT(f) beginnend mit dem größten Term.\\
 	Beim Induktionsschritt unterscheiden wir drei Fälle:\\
 	Sei f konstant, dann gilt \(f = \sum_{i=1}^{s} 0f_{i}\; + r\) mit \(r := f\) und \(h_{i} := 0\). \\
 	Falls ein \(i \in \underline{s}\) existiert, so dass \(LT(f_{i})\;| \; LT(f)\), setzen wir
@@ -220,7 +215,7 @@
 	\end{definition}
 
 	
-	\begin{lemma}
+	\begin{lemma}\label{kombinatorik}
 	Es gilt \(|M_{n,s}| := |\{\alpha \in \mathbb{N}^{n}_{0}\; |\; |\alpha| \leq s \}| = \binom{s + n}{s}. \)
 	\end{lemma}
 
@@ -260,7 +255,7 @@
 			&= 0
 		\end{align*}
 	 für alle \(s \in \mathbb{N}_{0}\).  
-	\item Sei nun \(I = \{0\}\). Dann ist mit Satz~\ref{1.2.8} und dem Theorem aus der Kombinatorik
+	\item Sei nun \(I = \{0\}\). Dann ist mit Satz~\ref{1.2.8} und Lemma~\ref{kombinatorik}
 		\begin{align*}
 			\prescript{a}{}{HF}_{I}(s) &= dim_{k}(\R_{\leq s}/I_{\leq s}) \\
 			&= dim_{k}(\R_{\leq s}) \\
@@ -270,12 +265,12 @@
 			&= \frac{1}{n!}(s+n)(s+n-1)\cdots (s+1) \\
 			&= \frac{1}{n!}s^{n} + \frac{1}{n!}\binom{n+1}{2}s^{n-1} + \cdots + 1. \\
 		\end{align*}
-	\item Gehen wir noch einmal kurz zu Abb.~\ref{dots} zurück. Hier ist betrachten wir ein 
-	Ideal I aus \(k[X,Y]\). Es gilt \(\prescript{a}{}{HF}_{I}(6) = 36\),
-	\(\prescript{a}{}{HF}_{I}(8) = 40\) und \(\prescript{a}{}{HF}_{I}(9) = 42\).
-	Für \(s \geq 7\) gilt \(\prescript{a}{}{HF}_{I}(s+1) = \prescript{a}{}{HF}_{I}(s) + 2\),
+	\item Gehen wir noch einmal kurz zu Abb.~\ref{dots} zurück. Hier betrachten wir ein 
+	Ideal I aus \(k[X,Y]\). Es gilt \(\prescript{a}{}{HF}_{I}(6) = 27\),
+	\(\prescript{a}{}{HF}_{I}(8) = 38\) und \(\prescript{a}{}{HF}_{I}(9) = 41\).
+	Für \(s \geq 11\) gilt \(\prescript{a}{}{HF}_{I}(s+1) = \prescript{a}{}{HF}_{I}(s) + 2\),
 	die Funktion wächst also linear. Man kann die Hilbertfunktion sogar direkt an der Abbildung
-	ablesen: Für \(s \geq 7\) gilt \(\prescript{a}{}{HF}_{I}(s) = 2*s + 22\).
+	ablesen: Für \(s \geq 7\) gilt \(\prescript{a}{}{HF}_{I}(s) = 2*s + 23\).
 	\end{itemize}
 
 	Überlegen wir uns kurz den Zusammenhang zwischen der \glqq gefühlten\grqq  Dimension einer Varietät und
@@ -348,9 +343,6 @@
 	Also kann man g als k-Linearkombination von Elementen aus B schreiben, damit spannt B ganz \(I\) und B ist eine Basis von \(I\).
 	\end{proof}
 
-	
-	\colorbox{yellow}{Was wir bis jetzt wissen}
-
 
 \section{Dimension von beliebigen Idealen}
 
@@ -363,7 +355,7 @@ Im folgenden sei $n \in \mathrm{N}$ beliebig aber fest.
 	Sei  \ideal $\unlhd$ $\R$, dann existiert ein eindeutiges Polynom \hp{I}(t) $\in \mathbb{Q}[t]$ (t ist eine Variable) und $\indx{s}{0}\geq0$,  sodass \hp{I}(s)=\hf{I}(s)= $\indx{dim}{k}$ ($\indx{\R}{\leq s}$/$\indx{I}{\leq s}$), für alle $ s\geq\indx{s}{0}$. Weiterhin besitzt \hp{I}(t) folgende Eigenschaften:	
 \end{satz}
 \begin{compactenum}
-	\item[a)] Der Grad von \hp{I}(t) ist der größte $d \in \mathbb{N}$, sodass es \dkette{i}{d} mit \kette{i}{d} existieren und $I\cap k[X_{{i}_{1}},\ldots,X_{{i}_{d}}]={\emptyset}$.
+	\item[a)] Der Grad von \hp{I}(t) ist der größte $d \in \mathbb{N}$, sodass es \dkette{i}{d} mit \kette{i}{d} existieren und $I\cap k[X_{{i}_{1}},\ldots,X_{{i}_{d}}]=\{0\}$.
 	\item[b)] Sei $d=grad(\textnormal{\hp{I}})$. Dann gilt \hp{I}(t)=$\sum_{k=0}^{d} \indx{a}{k}t^k$ mit $\indx{a}{k}d! \in \mathbb{Z}, \forall k\in \underline{\indx{d}{0}}$ und $\indx{a}{d}d!>0$
 \end{compactenum}
 
@@ -372,7 +364,7 @@ Im folgenden sei $n \in \mathrm{N}$ beliebig aber fest.
 	
 	Für die trivialen Fälle $I=(0)$ gilt, wegen \hf{I}(s)= $\indx{dim}{k}$ ($\indx{\R}{\leq s}$/$\indx{I}{\leq s}$)$=$ $\left|M\right|=\binom{n+s}{s}, \forall s\in \N$.
 	
-	Oder $I=\R$,wegen \hf{I}(s)= $\indx{dim}{k}$ ($\indx{\R}{\leq s}$/$\indx{I}{\leq s}$)$=0, \forall s\in \N$  (also \hp{I}$=0$ ist das Nullpolynom !) die Behauptungen.
+	Oder $I=\R$,wegen \hf{I}(s)= $\indx{dim}{k}$ ($\indx{\R}{\leq s}$/$\indx{I}{\leq s}$)$=0, \forall s\in \N$  (also \hp{I}$\equiv0$ ist das Nullpolynom !) die Behauptungen.
 	
 	
 	Wir gehen im Folgenden in fünf Schritten vor.\\
@@ -383,7 +375,7 @@ Im folgenden sei $n \in \mathrm{N}$ beliebig aber fest.
 		\{LM(g):g\in G\}=\{\potx{X}{\beta}:\beta \in M \}
 		\end{displaymath}
 		
-		 Die Mächtigkeit von $M$ ist endlich , da nach dem Hilbert'sche Basissatz $G$ eine endliche Menge von Mononen ist.
+		 Die Mächtigkeit von $M$ ist endlich , da nach dem Hilbert'sche Basissatz $G$ eine endliche Menge von Polynomen ist.
 		Wir setzen im Folgenden 
 		\begin{displaymath}
 		C(I):=\{\alpha \in \N: \potx{X}{\beta} \nmid \potx{X}{\alpha},\; \forall \beta \in M \}
@@ -431,12 +423,7 @@ Behauptung: Es existiert eine endliche Menge $\chi$ von Tupeln (J,$\tau$), sodas
 	\tau\prime(j), & falls\;  j \in J\prime \\
 	\\
 	0, & sonst \end{array}\right.$.
-	
-%	Also man kann O.B.d.A annehmen, dass in ($\star$) nur disjunkte $C(J,\tau)$ vereinigt werden. D.h.
-%	
-%	\begin{displaymath}
-%	C(I)=\sum\limits_{(J,\tau)\in \chi}C(J,\tau)
-%	\end{displaymath}
+
 	Aber es gilt $\alpha \in C(\beta)\Leftrightarrow \indx{\alpha}{i}<\indx{\beta}{i}$ für einige $i\in\underline{n}$. Also gilt,
  	
 
@@ -467,7 +454,7 @@ $\indx{F}{J,\tau}(s)=\left|\indx{C(J,\tau)}{\leq s}\right|$, für alle $s\geq |\
 \begin{displaymath}
 \left|\indx{A}{1}\cup\ldots\cup\indx{A}{m}\right|=\sum\limits_{r=1}^{m}(-1)^{r-1}\sum\limits_{J\subset\underline{n},\left|J\right|=r}{|\bigcap\limits_{j\in J}\indx{A}{j}|}
 \end{displaymath}
-berechnen. Diese Formel lässt sich mittels Vollständige-Induktion über $m$ oder leicht aus der Siebformel von Sylvester-Poincare aus der Stochastik (siehe \refname{Kamps17}) beweisen. Wir wenden im Folgenden dem Inklusion-Exklusion-Prinzip auf die Berechnung von \hf{I}$(s)=\left|\indx{C(J,\tau)}{\leq s}\right|$ an.
+berechnen. Diese Formel lässt sich mittels Vollständige-Induktion über $m$ oder leicht aus der Siebformel von Sylvester-Poincare aus der Stochastik (siehe \cite{Kamps17}) beweisen. Wir wenden im Folgenden dem Inklusion-Exklusion-Prinzip auf die Berechnung von \hf{I}$(s)=\left|\indx{C(J,\tau)}{\leq s}\right|$ an.
 
 Aus $(\star)$ existiert $l\in\N$ und $\indx{\left((\indx{J}{i},\indx{\tau}{i})\right)}{i\in\underline{l}}$, sodass
 
@@ -490,9 +477,9 @@ Sei dann $\indx{d}{0}$, der größte $d\geq0$, sodass es existiert ein Tupel $(J
 \textnormal{\hp{I}}(t)=\sum\limits_{(J,\tau)\in \chi,\, \indx{d}{0}+|J|=n}{\indx{F}{J,\tau}(t)} +\Omega(t), \textnormal{ mit } grad(\Omega)<\indx{d}{0}\\
 \end{displaymath}
 
-Aus dem 2.Fall erhält man, dass die Terme von Grad $\indx{d}{0}$ aufgrund deren positiven Leitkoeffizienten in der letzte Summe nicht verschwinden. Also $grad(\textnormal{\hp{I}(t)})=\indx{d}{0}$ und der führende Koeffizient ist $\frac{a}{\indx{d}{0}}>0$ mit $a\in\N$
+Aus dem 2.Fall erhält man, dass die Terme von Grad $\indx{d}{0}$ aufgrund deren positiven Leitkoeffizienten in der letzte Summe nicht verschwinden. Also $grad(\textnormal{\hp{I}(t)})=\indx{d}{0}$ und der führende Koeffizient ist $\frac{a}{\indx{d}{0}}>0$ mit $a\in\N$\\
 
-\item In diesem letzten Unterpunkt beweisen wir die Aussage in $a)$. Aus dem 3.Fall gilt, dass $grad(\textnormal{\hp{I}})$ die größte natürliche Zahl $d$ ist, sodass es ein $J\subset\underline{n}$ von $|J|=n-d$ und $\tau: J\rightarrow\N$ mit $C(J,\tau)\subset C(I)$  existiert. Das heißt, dass $grad(\textnormal{\hp{I}})$ gegeben ist, durch $n-m$, wobei $m\in\N$ die minimale Anzahl von Variablen $\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{m}}$, sodass $\indx{X}{\indx{i}{1}}.\ldots.\indx{X}{\indx{i}{m}}\in C(I)$ gilt.\\
+\item In diesem letzten Unterpunkt beweisen wir die Aussage in $a)$. Aus dem 4.Fall gilt, dass $grad(\textnormal{\hp{I}})$ die größte natürliche Zahl $d$ ist, sodass es ein $J\subset\underline{n}$ von $|J|=n-d$ und $\tau: J\rightarrow\N$ mit $C(J,\tau)\subset C(I)$  existiert. Dies auch äquivalent mit der Aussage, dass $grad(\textnormal{\hp{I}})$ gegeben ist, durch $n-m$, wobei $m\in\mathbb{N}$ die minimale Anzahl von Variablen $\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{m}}$ bezeichnet, sodass\\ $\alpha=(0,\ldots,\indx{\alpha}{\indx{i}{1}}=1,0,\ldots,0,\indx{\alpha}{\indx{i}{m}}=1,0,0)\in C(I)$ gilt.\\
 
 Behauptung: Es gilt: $I\cap k\left[\indx{X}{j}:j\notin J\right]={(0)}$, für alle Tupel $(J,\tau)$ sodass $C(J,\tau)\subset C(I)$.\\
 
