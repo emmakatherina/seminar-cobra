@@ -97,12 +97,22 @@
 
 Im folgenden sei $n \in \mathrm{N}$ beliebig aber fest.
 
+\begin{definition}[Buchberger]
+	Sei $I\subset \R$ ein nicht triviales Ideal und $\preceq$ eine Monomiale Ordnung auf $\potx{\N}{n}$. Man nennt eine endliche Menge $G\subseteq I-\{0\}$ eine Gröbner-Basis von $I$, falls die Monome $LT(g)$ $(g\in G)$ das Ideal 
+	\begin{displaymath}
+	(LT(I)):=(LT(f):0\neq f\in I)\subseteq \R
+	\end{displaymath}
+	erzeugen. 
+\end{definition}
+
+Nach dem Hilbert'sche Basissatz besitzt jedes nicht triviales Ideal eine Gröbner-Basis.\\
+
 \begin{satz}
 	\label{1.2.14}
 	Sei  \ideal $\unlhd$ $\R$, dann existiert ein eindeutiges Polynom \hp{I}(t) $\in \mathbb{Q}[t]$ (t ist eine Variable) und $\indx{s}{0}\geq0$,  sodass \hp{I}(s)=\hf{I}(s)= $\indx{dim}{k}$ ($\indx{\R}{\leq s}$/$\indx{I}{\leq s}$), für alle $ s\geq\indx{s}{0}$. Weiterhin besitzt \hp{I}(t) folgende Eigenschaften:	
-\end{satz}
+\end{satz}v
 \begin{compactenum}
-	\item[a)] Der Grad von \hp{I}(t) ist der größte $d \in \mathbb{N}$, sodass es \dkette{i}{d} mit \kette{i}{d} existieren und $I\cap k[X_{{i}_{1}},\ldots,X_{{i}_{d}}]={\emptyset}$.
+	\item[a)] Der Grad von \hp{I}(t) ist der größte $d \in \mathbb{N}$, sodass es \dkette{i}{d} mit \kette{i}{d} existieren und $I\cap k[X_{{i}_{1}},\ldots,X_{{i}_{d}}]=(0)$.
 	\item[b)] Sei $d=grad(\textnormal{\hp{I}})$. Dann gilt \hp{I}(t)=$\sum_{k=0}^{d} \indx{a}{k}t^k$ mit $\indx{a}{k}d! \in \mathbb{Z}, \forall k\in \underline{\indx{d}{0}}$ und $\indx{a}{d}d!>0$\\
 \end{compactenum}
 
@@ -120,37 +130,37 @@ C(I):=\{\alpha \in \N: \potx{X}{\beta} \nmid \potx{X}{\alpha},\; \forall \beta \
 \end{displaymath}
 
 \begin{compactenum}
-\item Behauptung: $\forall s\geq 0$ gilt \hf{I}(s)$=|\indx{C(I)}{\leq s}|$.\\
-\item Seien $J\subseteq \underline{n}$ und eine Abbildung $\tau:J\longrightarrow \N$ gegeben. Wir definieren
-\begin{displaymath}
-C(J,\tau):=\{\alpha \in (\N)^n: \indx{\alpha}{j}=\tau(j), \forall \in J  \}
-\end{displaymath}
-
-Behauptung: Es existiert eine endliche Menge $\chi$ von Tupeln (J,$\tau$), sodass 
-
-\begin{displaymath}
-(\star)\;\;\;   C(I)=\bigcup\limits_{(J,\tau)\in \chi} C(J,\tau) =\bigcup\limits_{i\in \underline{l}} C(\indx{J}{i},\indx{\tau}{i})  
-\end{displaymath}
-wobei $l=|\chi|$ ist.\\
-\item Behauptung: Für alle $(J,\tau)$ im 2.Fall, existiert ein eindeutiges Polynom $\indx{F}{J,\tau}(s)\in \mathbb{Q}[t]$ mit $grad(\indx{F}{J,\tau})=n-|J|$ und
-$\indx{F}{J,\tau}(s)=\left|\indx{C(J,\tau)}{\leq s}\right|$, für alle $s\geq |\tau|:=\sum\limits_{j\in J}\tau(j)$\\
-\item Sei $m\in\N$ beliebig aber fest vorgegeben. Falls $\indx{A}{1},\ldots,\indx{A}{m}$ endliche Teilmengen von einer Menge $T$ sind, dann lässt sich die Mächtigkeit deren Vereinigung mittels dem Inklusion-Exklusion-Prinzip durch
-
-\begin{displaymath}
-\left|\indx{A}{1}\cup\ldots\cup\indx{A}{m}\right|=\sum\limits_{r=1}^{m}(-1)^{r-1}\sum\limits_{J\subset\underline{n},\left|J\right|=r}{|\bigcap\limits_{j\in J}\indx{A}{j}|}
-\end{displaymath}
-berechnen. Zusammen mit $(\star)$ und $3)$ folgt für $s\geq \indx{s}{0}:=\max{\{\sum\limits_{i\in J\subset \underline{l}}|\indx{\tau}{i}|: J\subset \underline{l}\}}+1$ sowohl die eindeutige Existenz von \hp{I} als Polynom und die Aussage in $b)$. \\
-\item In diesem letzten Unterpunkt beweisen wir die Aussage in $a)$. Aus dem 4.Fall gilt, dass $grad(\textnormal{\hp{I}})$ die größte natürliche Zahl $d$ ist, sodass es ein $J\subset\underline{n}$ von $|J|=n-d$ und $\tau: J\rightarrow\N$ mit $C(J,\tau)\subset C(I)$  existiert. 
-
-Dies auch äquivalent mit der Aussage, dass $grad(\textnormal{\hp{I}})$ gegeben ist, durch $n-m$, wobei $m\in\mathbb{N}$ die minimale Anzahl von Variablen $\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{m}}$ bezeichnet, sodass $\alpha=(0,\ldots,\indx{\alpha}{\indx{i}{1}}=1,0,\ldots,0,\indx{\alpha}{\indx{i}{m}}=1,0,0)\in C(I)$ gilt.\\
+	\item Behauptung: $\forall s\geq 0$ gilt \hf{I}(s)$=|\indx{C(I)}{\leq s}|$.\\
+	\item Seien $J\subseteq \underline{n}$ und eine Abbildung $\tau:J\longrightarrow \N$ gegeben. Wir definieren
+	\begin{displaymath}
+	C(J,\tau):=\{\alpha \in (\N)^n: \indx{\alpha}{j}=\tau(j), \forall \in J  \}
+	\end{displaymath}
 	
-Behauptung: Es gilt: $I\cap k\left[\indx{X}{j}:j\notin J\right]={(0)}$, für alle Tupel $(J,\tau)$ sodass $C(J,\tau)\subset C(I)$.\\
-
-Hieraus folgt, dass
-\begin{align*}
-grad(\textnormal{\hp{I}}(t))&\leq \max{\{d\in\underline{n}:\exists J\subset\underline{n}\, mit\,I\cap K[\indx{X}{j}:j\in J]=(0)\}}\\&
-= \max{\{d\in\underline{n}:\exists \indx{i}{1},\ldots,\indx{i}{n}\underline{n}\; \textnormal{ mit }  1\leq\indx{i}{1}<\ldots<\indx{i}{n}\leq n\;\textnormal{ und }I\cap K[\indx{X}{j}:j\notin J]=(0)\}}.
-\end{align*}
+	Behauptung: Es existiert eine endliche Menge $\chi$ von Tupeln (J,$\tau$), sodass 
+	
+	\begin{displaymath}
+	(\star)\;\;\;   C(I)=\bigcup\limits_{(J,\tau)\in \chi} C(J,\tau) =\bigcup\limits_{i\in \underline{l}} C(\indx{J}{i},\indx{\tau}{i})  
+	\end{displaymath}
+	wobei $l=|\chi|$ ist.\\
+	\item Behauptung: Für alle $(J,\tau)$ im 2.Fall, existiert ein eindeutiges Polynom $\indx{F}{J,\tau}(s)\in \mathbb{Q}[t]$ mit $grad(\indx{F}{J,\tau})=n-|J|$ und
+	$\indx{F}{J,\tau}(s)=\left|\indx{C(J,\tau)}{\leq s}\right|$, für alle $s\geq |\tau|:=\sum\limits_{j\in J}\tau(j)$\\
+	\item Sei $m\in\N$ beliebig aber fest. Falls $\indx{A}{1},\ldots,\indx{A}{m}$ endliche Teilmengen von einer Menge $T$ sind, dann lässt sich die Mächtigkeit deren Vereinigung mittels dem Inklusion-Exklusion-Prinzip durch
+	
+	\begin{displaymath}
+	\left|\indx{A}{1}\cup\ldots\cup\indx{A}{m}\right|=\sum\limits_{r=1}^{m}(-1)^{r-1}\sum\limits_{J\subset\underline{n},\left|J\right|=r}{|\bigcap\limits_{j\in J}\indx{A}{j}|}
+	\end{displaymath}
+	berechnen. Zusammen mit $(\star)$ und 3.Fall folgt für $s\geq \indx{s}{0}:=\max{\{\sum\limits_{i\in J\subset \underline{l}}|\indx{\tau}{i}|: J\subset \underline{l}\}}+1$ sowohl die eindeutige Existenz von \hp{I} als Polynom als auch die Aussage in $b)$. \\
+	\item In diesem letzten Unterpunkt beweisen wir die Aussage in $a)$. Aus dem 4.Fall gilt, dass $grad(\textnormal{\hp{I}})$ die größte natürliche Zahl $d$ ist, sodass es ein $J\subset\underline{n}$ von $|J|=n-d$ und $\tau: J\rightarrow\N$ mit $C(J,\tau)\subset C(I)$  existiert. 
+	
+	Dies auch äquivalent mit der Aussage, dass $grad(\textnormal{\hp{I}})$ gegeben ist, durch $n-m$, wobei $m\in\mathbb{N}$ die minimale Anzahl von Variablen $\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{m}}$ bezeichnet, sodass $\alpha=(0,\ldots,\indx{\alpha}{\indx{i}{1}}=1,0,\ldots,0,\indx{\alpha}{\indx{i}{m}}=1,0,0)\in C(I)$ gilt.\\
+	
+	Behauptung: Es gilt: $I\cap k\left[\indx{X}{j}:j\notin J\right]={(0)}$, für alle Tupel $(J,\tau)$ sodass $C(J,\tau)\subset C(I)$.\\
+	
+	Hieraus folgt, dass
+	\begin{align*}
+	grad(\textnormal{\hp{I}}(t))&\leq \max{\{d\in\underline{n}:\exists J\subset\underline{n}\, mit\,I\cap K[\indx{X}{j}:j\in J]=(0)\}}\\&
+	= \max{\{d\in\underline{n}:\exists \indx{i}{1},\ldots,\indx{i}{n}\underline{n}\; \textnormal{ mit }  1\leq\indx{i}{1}<\ldots<\indx{i}{n}\leq n\;\textnormal{ und }I\cap K[\indx{X}{j}:j\notin J]=(0)\}}.
+	\end{align*}
 \end{compactenum}
 
 % %
@@ -169,7 +179,7 @@ grad(\textnormal{\hp{I}}(t))&\leq \max{\{d\in\underline{n}:\exists J\subset\unde
 \end{definition}
 Beispiel: 
 \begin{compactenum}
-	\item Für $V=\{v\}\subset k^n$ gilt $dim(V)=0$
+	\item Für $V=\{v\}\subset k^n$ gilt $dim(V)=0$.
 	\item Für $V\subseteq k^n$ gilt $dim(V)=n$ genau, dann wenn $V=k^n$.
 	\item Sei $V=\indx{H}{f}$ mit $f\neq\; const.$ eine Hyperfläche, dann gilt $dim(V)=n-1$.\\
 \end{compactenum}
@@ -204,8 +214,6 @@ Im Folgenden wollen wir eine andere Charakterisierung von $dim(V)$ angeben.
 	Bemerkung: Falls A ein Körper ist, dann nennt man $\indx{\partial}{k}(A)$ der transcendenz Grad von $A$ über $k$.\\
 \end{definition}
 
-% %
-
 \begin{proposition}
 	Sei $A:=\R/I$ mit $I\unlhd\R$ ein echtes Ideal. Dann gilt $grad(\textnormal{\hp{I}})=\indx{\partial}{k}(A)$. Ist $A$ weiterhin einen Integrietätsbereich $(IB)$ und $K$ ist der Quotienten-Körper von $A$, dann gilt
 	\begin{displaymath}
@@ -214,12 +222,11 @@ Im Folgenden wollen wir eine andere Charakterisierung von $dim(V)$ angeben.
 	Insbesondere gilt $dim(V)=\indx{\partial}{k}(A[V])$ für jede nicht-leere algebraische $V\subset k^n$.\\
 \end{proposition}
 
-Beispiel: Aus dem 1.Vortrag gilt für den sog. Twisted Cubic $C=V((\indx{X}{2}-\indx{X}{1}^2,\indx{X}{3}-\indx{X}{1}^3))\subset k^n$, dass $I(C)=(\indx{X}{2}-\indx{X}{1}^2,\indx{X}{3}-\indx{X}{1}^3)$ und $\R/I(C)\cong k[Y]$. Wir zeigen
+Beispiel: Aus dem 1.Vortrag gilt für den sog. \textquotedblleft Twisted Cubic\textquotedblright \;      $C=V((\indx{X}{2}-\indx{X}{1}^2,\indx{X}{3}-\indx{X}{1}^3))\subset k^n$, dass $I(C)=(\indx{X}{2}-\indx{X}{1}^2,\indx{X}{3}-\indx{X}{1}^3)$ und $\R/I(C)\cong k[Y]$. Wir zeigen
 \begin{displaymath}
 dim(C)=\indx{\partial}{k}(\R/I(C))=\indx{\partial}{k}(k[Y])=1.\\
 \end{displaymath} 
 \\
-% %
 
 \begin{lemma}
 	Sei $V\subseteq k^n$ irreduzible algebraischer Menge und $W\subseteq V$ abgeschlossenen Teilmenge. Dann gilt $dim(W)<dim(V)$, falls $W$ echte Teilmenge von $V$ ist.

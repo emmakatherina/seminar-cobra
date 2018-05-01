@@ -56,14 +56,14 @@
 
 	\begin{figure}[ht]
 		\centering
-		\includegraphics[width=.75\linewidth]{circle.png}
+%		\includegraphics[width=.75\linewidth]{circle.png}
 		\caption{Die Varietät \(V(X^2 + Y^2 -1)\) aus \cite{CLOS}}
 		\label{circle}
 	\end{figure}
 
 	\begin{figure}[ht]
 		\centering
-		\includegraphics[width=.5\linewidth]{paraboloid.png}
+%		\includegraphics[width=.5\linewidth]{paraboloid.png}
 		\caption{Das elliptische Paraboloid \(V(Z - X^2 -Y)\) aus \cite{CLOS}}
 		\label{paraboloid}
 	\end{figure}
@@ -198,7 +198,7 @@
 
 	\begin{figure}[ht]
 		\centering
-		\includegraphics[width=.75\linewidth]{Dots.png}
+%		\includegraphics[width=.75\linewidth]{Dots.png}
 		\caption{Anschauliche Darstellung von \(\R/I\) aus \cite{CLOS}}
 		\label{dots}
 	\end{figure}
@@ -344,16 +344,25 @@
 	Also kann man g als k-Linearkombination von Elementen aus B schreiben, damit spannt B ganz \(I\) und B ist eine Basis von \(I\).
 	\end{proof}
 
-\section{Das Hilbertpolynom und die Dimension einer Varietät}
+\section{Das Hilbert-Polynom und die Dimension affiner-Varietäten}
 
 Im folgenden sei $n \in \mathrm{N}$ beliebig aber fest.
+
+\begin{definition}
+	Sei $I\subset \R$ ein nicht triviales Ideal und $\preceq$ eine Monomiale Ordnung auf $\potx{\N}{n}$. Man nennt eine endliche Menge $G\subseteq I-\{0\}$ eine Gröbner-Basis von $I$, falls die Monome $LT(g)$ $(g\in G)$ das Ideal 
+	\begin{displaymath}
+	(LT(I)):=(LT(f):0\neq f\in I)\subseteq \R
+	\end{displaymath}
+	erzeugen. 
+\end{definition}
+Nach dem Hilbert'sche Basissatz besitzt jedes nicht triviales Ideal eine Gröbner-Basis.\\
 
 \begin{satz}
 	\label{1.2.14}
 	Sei  \ideal $\unlhd$ $\R$, dann existiert ein eindeutiges Polynom \hp{I}(t) $\in \mathbb{Q}[t]$ (t ist eine Variable) und $\indx{s}{0}\geq0$,  sodass \hp{I}(s)=\hf{I}(s)= $\indx{dim}{k}$ ($\indx{\R}{\leq s}$/$\indx{I}{\leq s}$), für alle $ s\geq\indx{s}{0}$. Weiterhin besitzt \hp{I}(t) folgende Eigenschaften:	
 \end{satz}
 \begin{compactenum}
-	\item[a)] Der Grad von \hp{I}(t) ist der größte $d \in \mathbb{N}$, sodass es \dkette{i}{d} mit \kette{i}{d} existieren und $I\cap k[X_{{i}_{1}},\ldots,X_{{i}_{d}}]=\{0\}$.
+	\item[a)] Der Grad von \hp{I}(t) ist der größte $d \in \mathbb{N}$, sodass es \dkette{i}{d} mit \kette{i}{d} existieren und $I\cap k[X_{{i}_{1}},\ldots,X_{{i}_{d}}]=(0)$.
 	\item[b)] Sei $d=grad(\textnormal{\hp{I}})$. Dann gilt \hp{I}(t)=$\sum_{k=0}^{d} \indx{a}{k}t^k$ mit $\indx{a}{k}d! \in \mathbb{Z}, \forall k\in \underline{\indx{d}{0}}$ und $\indx{a}{d}d!>0$
 \end{compactenum}
 
@@ -373,7 +382,7 @@ Im folgenden sei $n \in \mathrm{N}$ beliebig aber fest.
 		\{LM(g):g\in G\}=\{\potx{X}{\beta}:\beta \in M \}
 		\end{displaymath}
 		
-		 Die Mächtigkeit von $M$ ist endlich , da nach dem Hilbert'sche Basissatz $G$ eine endliche Menge von Polynomen ist.
+		Die Mächtigkeit von $M$ ist endlich , da nach dem Hilbert'sche Basissatz $G$ eine endliche Menge von Polynomen ist.
 		Wir setzen im Folgenden 
 		\begin{displaymath}
 		C(I):=\{\alpha \in \N: \potx{X}{\beta} \nmid \potx{X}{\alpha},\; \forall \beta \in M \}
@@ -381,139 +390,139 @@ Im folgenden sei $n \in \mathrm{N}$ beliebig aber fest.
 		\indx{C(I)}{\leq s}:= \{\alpha \in \N:|\alpha|\leq s, \; \potx{X}{\beta} \nmid \potx{X}{\alpha},\; \forall \beta \in M \}
 		\end{displaymath}
 		
-Behauptung: $\forall s\geq 0$ gilt \hf{I}(s)$=|\indx{C(I)}{\leq s}|$.\\
-
-\begin{proof}[Beweis]
-Nach Macaulay() gilt \hf{I}(s)=\hf{(LT(I))}(s), für alle $ \in s\geq0$. Das heißt,
-\begin{displaymath}
-\indx{dim}{k} (\indx{\R}{\leq s}/\indx{I}{\leq s})=\indx{dim}{k}(\indx{\R}{\leq s}/\indx{(LT(I))}{\leq s}).
-\end{displaymath}
-
-Weiterhin gilt mit Definition (1.2.7)(Buchberger), dass $H=\{\potx{X}{\beta}:\beta \in M \}$ eine Gröebner-Basis von (LT(I)) ist. Mit Satz \ref{1.2.8} bilden die Restklassen von $\potx{X}{\alpha}$ ($\alpha\in C(I)$) eine $k$-Vektorraum-Basis von $\R/(LT(I))$. Daraus folgt die Behauptung.\\
-\end{proof}
-\item Seien $J\subseteq \underline{n}$ und eine Abbildung $\tau:J\longrightarrow \N$ gegeben. Wir definieren
-\begin{displaymath}
-C(J,\tau):=\{\alpha \in (\N)^n: \indx{\alpha}{j}=\tau(j), \forall \in J  \}
-\end{displaymath}
-
-Behauptung: Es existiert eine endliche Menge $\chi$ von Tupeln (J,$\tau$), sodass 
-
-\begin{displaymath}
-(\star)\;\;\;   C(I)=\bigcup\limits_{(J,\tau)\in \chi} C(J,\tau)  
- \end{displaymath}
-
-\begin{proof}[Beweis]
-	Für $\beta:=(\indx{\beta}{1},\ldots,\indx{\beta}{n}) \in \N$, definiert man 
-	
-	\begin{displaymath}
-	C(\beta):=\{\alpha\in \potx{\N}{n}: \potx{X}{\beta}\nmid\potx{X}{\alpha}\}
-	\end{displaymath}
-	Dann gilt $C(I)=\bigcap\limits_{\beta\in M}C(\beta)$. 
-	Weiterhin gilt falls $(J,\tau),(J\prime,\tau\prime)$ zwei Tupeln, wie oben definiert sind
-	
-	\begin{displaymath}
-	(\star \star)\;\;\;   C(J,\tau)\cap C(J\prime,\tau\prime)=\left\{\begin{array}{ll} \emptyset & ,falls  \;\tau(j)\neq\tau\prime(j)\; \textnormal{ für einige } j\in J\cap J\prime \\
-	\\
-	C(J\cup J\prime, \tau_0) & ,sonst \end{array}\right.
-	\end{displaymath} 
-	wobei $\indx{\tau}{0}:J\cup J\prime \longrightarrow \N$, $ j\mapsto \tau_{0}(j)=\left\{\begin{array}{ll} \tau(j), & falls\;  j \in J \\
-	\\
-	\tau\prime(j), & falls\;  j \in J\prime \\
-	\\
-	0, & sonst \end{array}\right.$.
-
-	Aber es gilt $\alpha \in C(\beta)\Leftrightarrow \indx{\alpha}{i}<\indx{\beta}{i}$ für einige $i\in\underline{n}$. Also gilt,
- 	
-
- 	\begin{align*}
- 	C(\beta)&=\bigcup\limits_{i=1}^{n}\bigcup\limits_{t_{i}=1}^{\indx{\beta}{i}-1}\{\alpha\in \potx{\N}{n}:\indx{a}{i}=\indx{t}{i}\}\\&
- 	=\bigcup\limits_{i=1}^{n}\bigcup\limits_{t_{i}=1}^{\indx{\beta}{i}-1} C({i},\tau:i\mapsto \indx{t}{i})
- 	\end{align*}
- 	Da $\left|M\right|$ endlich und die $C(\beta)$ jeweils endliche Vereinigungen von Mengen von Typ $C(J,\tau)$ ist, folgt die Behauptung aus ($\star \star$).\\
-\end{proof}
-\item Behauptung: Für alle $(J,\tau)$ im 2.Fall, existiert ein eindeutiges Polynom $\indx{F}{J,\tau}(s)\in \mathbb{Q}[t]$ mit $grad(\indx{F}{J,\tau})=n-|J|$ und
-$\indx{F}{J,\tau}(s)=\left|\indx{C(J,\tau)}{\leq s}\right|$, für alle $s\geq |\tau|:=\sum\limits_{j\in J}\tau(j)$\\
-
-\begin{proof}[Beweis]
-	Sei $\gamma=(\indx{\gamma}{1},\ldots,\indx{\gamma}{n}) \in \N$, sodass $\indx{\gamma}{j}=0$, falls $j\notin J$ und $\indx{\gamma}{j}=\tau(j)$, falls $j\in J$. Dann gilt $C(J,\tau)$ ist die Menge von $\alpha+\gamma$, wo  $\alpha=(\indx{\alpha}{1},\ldots,\indx{\alpha}{n}) \in \potx{\N}{n}$ ist, sodass $\indx{\alpha}{j}=0, \forall j \in J$. Daraus folgt, dass $\left|\indx{C(J,\tau)}{\leq s}\right|$ die Anzahl von Monomen in den Variablen $\indx{X}{j}$ $(j\notin J)$, sodass multipliziert mit $\potx{X}{\gamma}$, der Grad maximal $s$ beträgt.
-	
-	Dies wiederum entspricht der Anzahl von Monomen in $d:=n-\left|J\right|$ Variablen deren höchstens Grad $s-\left|\gamma\right|$ beträgt, da die Variablen mit Indizes in $J$ eine durch $\tau$ vorgegebene Potenz haben und der Grad des gesamten Produkts nach oben durch $s$ beschränkt ist. Wichtig hierbei zu beachten ist, dass $\left|\gamma\right|=\left|\tau\right|$ gilt. Deswegen gilt,
-	
-	\begin{align*}
-	\left|\indx{C(J,\tau)}{\leq s}\right|&=\binom{n-\left|J\right|+s-\left|\gamma\right|}{s-\left|\gamma\right|}=\binom{d+s-\left|\gamma\right|}{s-\left|\gamma\right|}\\&
-	=\binom{d+s-\left|\gamma\right|}{d}=\frac{(d+s-\left|\gamma\right|)(d+s-\left|\gamma-1\right|\ldots(s-\left|\gamma+1\right|))}{d!}\\&
-	=\frac{s^d+O(s)}{d!}=:\indx{F}{J,\tau}(s)
-	\end{align*}
-	,wobei $grad(O(s))<d$ gilt.	Da die Koeffizienten des obigen Polynoms eindeutig durch $d$  und $|\gamma|$ festgelegt sind, folgt die Eindeutigkeit von $\indx{F}{J,\tau}$. Hierbei hat der Leitkoeffizient von $\indx{F}{J,\tau}$ die Form $\frac{1}{d!}>0$.
-\end{proof}
-
-\item Sei $m\in\N$ beliebig aber fest vorgegeben. Falls $\indx{A}{1},\ldots,\indx{A}{m}$ endliche Teilmengen von einer Menge $T$ sind, dann lässt sich die Mächtigkeit deren Vereinigung mittels dem Inklusion-Exklusion-Prinzip durch
-
-\begin{displaymath}
-\left|\indx{A}{1}\cup\ldots\cup\indx{A}{m}\right|=\sum\limits_{r=1}^{m}(-1)^{r-1}\sum\limits_{J\subset\underline{n},\left|J\right|=r}{|\bigcap\limits_{j\in J}\indx{A}{j}|}
-\end{displaymath}
-berechnen. Diese Formel lässt sich mittels Vollständige-Induktion über $m$ oder leicht aus der Siebformel von Sylvester-Poincare aus der Stochastik (siehe \cite{Kamps17}) beweisen. Wir wenden im Folgenden dem Inklusion-Exklusion-Prinzip auf die Berechnung von \hf{I}$(s)=\left|\indx{C(J,\tau)}{\leq s}\right|$ an.
-
-Aus $(\star)$ existiert $l\in\N$ und $\indx{\left((\indx{J}{i},\indx{\tau}{i})\right)}{i\in\underline{l}}$, sodass
-
-\begin{displaymath}
-C(I)=\bigcup\limits_{(J,\tau)\in \chi}C(J,\tau)=\bigcup\limits_{i\in\underline{l}}C(\indx{J}{i},\indx{\tau}{i})
-\end{displaymath}
-
-Sei $\indx{s}{0}:=\max{\{|\indx{\tau}{i}|:i\in\underline{l}\}}+1$. Für $s\geq \indx{s}{0}$ gilt  aus 2.Fall für alle $i\in \underline{l}$, dass
-
-\begin{displaymath}
-\left|\indx{C(\indx{J}{i},\indx{\tau}{i})}{\leq s}\right|=\frac{s^{\indx{d}{i}}+O(s)}{\indx{d}{i}!}, \textnormal{ mit }grad(O(s))<{\indx{d}{i}}=n-|\indx{J}{i}|
-\end{displaymath}
-
-Weiterhin haben wir im 2.Fall gesehen, dass der Schnitt von Mengen der Form $C(J,\tau)$ entweder leer oder von der Form $C(\indx{J}{0},\indx{\tau}{0})$ mit $\indx{J}{0}\supseteq J$ (mit $\indx{J}{0}\neq J$, falls die Tupel im Schnitt nicht gleich sind.). Aus dem 2.Fall gilt, dass $\left|\indx{C(J,\tau)}{\leq s}\right|$ für $s\geq |\tau|$ die Werte eines eindeutigen Polynom $\indx{F}{J,\tau}\in \mathbb{Q}[t]$ annimmt, dessen Koeffizienten eindeutig durch $d=n-|J|$ und $|\tau|$ ($=|\gamma| $ nach Definition $\tau$) festgelegt sind. Daraus folgt für $s\geq\indx{s}{0}$ die Existenz von \hp{I} $\in \mathbb{Q}[t]$ aus dem Inklusion-Exklusion-Prinzip.
-
-
-Sei dann $\indx{d}{0}$, der größte $d\geq0$, sodass es existiert ein Tupel $(J,\tau)$ mit $C(J,\tau)\subset C(I)$ und $d=n-|J|$. Dann gilt
-
-\begin{displaymath}
-\textnormal{\hp{I}}(t)=\sum\limits_{(J,\tau)\in \chi,\, \indx{d}{0}+|J|=n}{\indx{F}{J,\tau}(t)} +\Omega(t), \textnormal{ mit } grad(\Omega)<\indx{d}{0}\\
-\end{displaymath}
-
-Aus dem 2.Fall erhält man, dass die Terme von Grad $\indx{d}{0}$ aufgrund deren positiven Leitkoeffizienten in der letzte Summe nicht verschwinden. Also $grad(\textnormal{\hp{I}(t)})=\indx{d}{0}$ und der führende Koeffizient ist $\frac{a}{\indx{d}{0}}>0$ mit $a\in\N$\\
-
-\item In diesem letzten Unterpunkt beweisen wir die Aussage in $a)$. Aus dem 4.Fall gilt, dass $grad(\textnormal{\hp{I}})$ die größte natürliche Zahl $d$ ist, sodass es ein $J\subset\underline{n}$ von $|J|=n-d$ und $\tau: J\rightarrow\N$ mit $C(J,\tau)\subset C(I)$  existiert. Dies auch äquivalent mit der Aussage, dass $grad(\textnormal{\hp{I}})$ gegeben ist, durch $n-m$, wobei $m\in\mathbb{N}$ die minimale Anzahl von Variablen $\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{m}}$ bezeichnet, sodass\\ $\alpha=(0,\ldots,\indx{\alpha}{\indx{i}{1}}=1,0,\ldots,0,\indx{\alpha}{\indx{i}{m}}=1,0,0)\in C(I)$ gilt.\\
-
-Behauptung: Es gilt: $I\cap k\left[\indx{X}{j}:j\notin J\right]={(0)}$, für alle Tupel $(J,\tau)$ sodass $C(J,\tau)\subset C(I)$.\\
-
-\begin{proof}[Beweis]
-	Angenommen es existiere $ 0\neq f\in I\cap k\left[\indx{X}{j}:j\notin J\right]$. Dann gilt 
-	$ 0\neq LT(f)\in LT(I)\cap k\left[\indx{X}{j}:j\notin J\right]$. Schreibt man weiterhin
-	
-	\begin{displaymath}
-	LT(f)=a\potx{X}{\alpha}, \textnormal{ mit } a\in\potx{k}{*}, \alpha\in\potx{\N}{n} 
-	\end{displaymath}
-	mit  $\indx{\alpha}{j}=0, \,\forall j\in J$ und $\gamma+\alpha \in C(J,\tau)\subset C(I)$ für ein $\gamma\in C(J,\tau)$, dann gilt 
-	
-	\begin{displaymath}
-	a\potx{X}{\gamma+\alpha}=a\potx{X}{\gamma}LT(f)\in(LT(I))\Rightarrow\exists\beta\in M:\potx{X}{\beta}\nmid\potx{X}{\gamma+\alpha}
-	\end{displaymath}
-Dies ist  ein Widerspruch zu $\gamma+\alpha\in C(I)$, woraus die Behauptung folgt. \\
-\end{proof} 
-Da die letzte Aussage für jedes der in $(\star)$ vorkommenden $J$ gültig ist und $grad(\textnormal{\hp{I}})=\left|\{\indx{X}{j}:j\notin J\}\right|$ für ein mindestens eines solchen $J$ gilt, folgt
-
-\begin{align*}
-grad(\textnormal{\hp{I}}(t))&\leq \max{\{d\in\underline{n}:\exists J\subset\underline{n}\, mit\,I\cap K[\indx{X}{j}:j\in J]=(0)\}}\\&
-= \max{\{d\in\underline{n}:\exists \indx{i}{1},\ldots,\indx{i}{n}\underline{n}\; \textnormal{ mit }  1\leq\indx{i}{1}<\ldots<\indx{i}{n}\leq n\;\textnormal{ und }I\cap K[\indx{X}{j}:j\notin J]=(0)\}}:=\indx{d}{0}
-\end{align*}
-
-, da jedes $J$ in $(\star)$ Teilmengen von $\underline{n}$ sind.
-
-Andererseits, falls $1\leq\indx{i}{1}<\ldots<\indx{i}{\indx{d}{0}}\leq n$, so gewählt sind, dass $I\cap K[\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{\indx{d}{0}}}]={0}$, dann ist die kanonische Abbildung 
-\begin{displaymath}
-\Pi:K[\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{\indx{d}{0}}}]\rightarrow\R/I
-\end{displaymath}
-injektiv und es folgt für alle $ s\in\N$
-\begin{align*}
-\textnormal{\hp{I}}(s)&=\textnormal{\hf{I}}(s)=\indx{dim}{k}(\indx{(\R/I)}{\leq s})\geq \indx{dim}{k}(\indx{(K[\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{\indx{d}{0}}}])}{\leq s})\\&
-=\binom{s+\indx{d}{0}}{s}=\frac{s^{\indx{d}{0}}+O(s)}{\indx{d}{0}!}
-\end{align*}
-Da $grad(\binom{s+\indx{d}{0}}{s})=\indx{d}{0}\textnormal{ folgt } grad(\textnormal{\hp{I}})\geq \indx{d}{0}$. Daraus folgt $grad(\textnormal{\hp{I}})=\indx{d}{0}$, was zu zeigen war. 
+		Behauptung: $\forall s\geq 0$ gilt \hf{I}(s)$=|\indx{C(I)}{\leq s}|$.\\
+		
+		\begin{proof}[Beweis]
+			Nach Lemma \ref{1.2.13} gilt \hf{I}(s)=\hf{(LT(I))}(s), für alle $ \in s\geq0$. Das heißt,
+			\begin{displaymath}
+			\indx{dim}{k} (\indx{\R}{\leq s}/\indx{I}{\leq s})=\indx{dim}{k}(\indx{\R}{\leq s}/\indx{(LT(I))}{\leq s}).
+			\end{displaymath}
+			
+			Weiterhin gilt mit Definition (1.2.7)(Buchberger), dass $H=\{\potx{X}{\beta}:\beta \in M \}$ eine Gröebner-Basis von (LT(I)) ist. Mit Satz \ref{1.2.8} bilden die Restklassen von $\potx{X}{\alpha}$ ($\alpha\in C(I)$) eine $k$-Vektorraum-Basis von $\R/(LT(I))$. Daraus folgt die Behauptung.\\
+		\end{proof}
+		\item Seien $J\subseteq \underline{n}$ und eine Abbildung $\tau:J\longrightarrow \N$ gegeben. Wir definieren
+		\begin{displaymath}
+		C(J,\tau):=\{\alpha \in (\N)^n: \indx{\alpha}{j}=\tau(j), \forall \in J  \}
+		\end{displaymath}
+		
+		Behauptung: Es existiert eine endliche Menge $\chi$ von Tupeln (J,$\tau$), sodass 
+		
+		\begin{displaymath}
+		(\star)\;\;\;   C(I)=\bigcup\limits_{(J,\tau)\in \chi} C(J,\tau)  
+		\end{displaymath}
+		
+		\begin{proof}[Beweis]
+			Für $\beta:=(\indx{\beta}{1},\ldots,\indx{\beta}{n}) \in \N^n$, definiert man 
+			
+			\begin{displaymath}
+			C(\beta):=\{\alpha\in \potx{\N}{n}: \potx{X}{\beta}\nmid\potx{X}{\alpha}\}
+			\end{displaymath}
+			Dann gilt $C(I)=\bigcap\limits_{\beta\in M}C(\beta)$. 
+			Weiterhin gilt, falls $(J,\tau),(J\prime,\tau\prime)$ zwei Tupeln sind, wie oben definiert, dass
+			
+			\begin{displaymath}
+			(\star \star)\;\;\;   C(J,\tau)\cap C(J\prime,\tau\prime)=\left\{\begin{array}{ll} \emptyset & ,falls  \;\tau(j)\neq\tau\prime(j)\; \textnormal{ für einige } j\in J\cap J\prime \\
+			\\
+			C(J\cup J\prime, \tau_0) & ,sonst \end{array}\right.
+			\end{displaymath} 
+			wobei $\indx{\tau}{0}:J\cup J\prime \longrightarrow \N$, $ j\mapsto \tau_{0}(j)=\left\{\begin{array}{ll} \tau(j), & falls\;  j \in J \\
+			\\
+			\tau\prime(j), & falls\;  j \in J\prime \\
+			\\
+			0, & sonst \end{array}\right.$.
+			
+			Aber es gilt $\alpha \in C(\beta)\Leftrightarrow \indx{\alpha}{i}<\indx{\beta}{i}$ für einige $i\in\underline{n}$. Also gilt,
+			
+			
+			\begin{align*}
+			C(\beta)&=\bigcup\limits_{i=1}^{n}\bigcup\limits_{t_{i}=1}^{\indx{\beta}{i}-1}\{\alpha\in \potx{\N}{n}:\indx{a}{i}=\indx{t}{i}\}\\&
+			=\bigcup\limits_{i=1}^{n}\bigcup\limits_{t_{i}=1}^{\indx{\beta}{i}-1} C({i},\tau:i\mapsto \indx{t}{i})
+			\end{align*}
+			Da $\left|M\right|$ endlich und die $C(\beta)$ jeweils endliche Vereinigungen von Mengen von Typ $C(J,\tau)$ ist, folgt die Behauptung aus ($\star \star$).\\
+		\end{proof}
+		\item Behauptung: Für alle $(J,\tau)$ im 2.Fall, existiert ein eindeutiges Polynom $\indx{F}{J,\tau}(s)\in \mathbb{Q}[t]$ mit $grad(\indx{F}{J,\tau})=n-|J|$ und
+		$\indx{F}{J,\tau}(s)=\left|\indx{C(J,\tau)}{\leq s}\right|$, für alle $s\geq |\tau|:=\sum\limits_{j\in J}\tau(j)$\\
+		
+		\begin{proof}[Beweis]
+			Sei $\gamma=(\indx{\gamma}{1},\ldots,\indx{\gamma}{n}) \in \N$, sodass $\indx{\gamma}{j}=0$, falls $j\notin J$ und $\indx{\gamma}{j}=\tau(j)$, falls $j\in J$. Dann gilt $C(J,\tau)$ ist die Menge von $\alpha+\gamma$, wo  $\alpha=(\indx{\alpha}{1},\ldots,\indx{\alpha}{n}) \in \potx{\N}{n}$ ist, sodass $\indx{\alpha}{j}=0, \forall j \in J$. Daraus folgt, dass $\left|\indx{C(J,\tau)}{\leq s}\right|$ die Anzahl von Monomen in den Variablen $\indx{X}{j}$ $(j\notin J)$, sodass multipliziert mit $\potx{X}{\gamma}$, der Grad maximal $s$ beträgt.
+			
+			Dies wiederum entspricht der Anzahl von Monomen in $d:=n-\left|J\right|$ Variablen deren höchstens Grad $s-\left|\gamma\right|$ beträgt, da die Variablen mit Indizes in $J$ eine durch $\tau$ vorgegebene Potenz haben und der Grad des gesamten Produkts nach oben durch $s$ beschränkt ist. Wichtig hierbei zu beachten ist, dass $\left|\gamma\right|=\left|\tau\right|$ gilt. Deswegen gilt,
+			
+			\begin{align*}
+			\left|\indx{C(J,\tau)}{\leq s}\right|&=\binom{n-\left|J\right|+s-\left|\gamma\right|}{s-\left|\gamma\right|}=\binom{d+s-\left|\gamma\right|}{s-\left|\gamma\right|}\\&
+			=\binom{d+s-\left|\gamma\right|}{d}=\frac{(d+s-\left|\gamma\right|)(d+s-\left|\gamma-1\right|\ldots(s-\left|\gamma+1\right|))}{d!}\\&
+			=\frac{s^d+O(s)}{d!}=:\indx{F}{J,\tau}(s)
+			\end{align*}
+			,wobei $grad(O(s))<d$ gilt.	Da die Koeffizienten des obigen Polynoms eindeutig durch $d$  und $|\gamma|$ festgelegt sind, folgt die Eindeutigkeit von $\indx{F}{J,\tau}$. Hierbei hat der Leitkoeffizient von $\indx{F}{J,\tau}$ die Form $\frac{1}{d!}>0$.
+		\end{proof}
+		
+		\item Sei $m\in\N$ beliebig aber fest. Falls $\indx{A}{1},\ldots,\indx{A}{m}$ endliche Teilmengen von einer Menge $T$ sind, dann lässt sich die Mächtigkeit deren Vereinigung mittels dem Inklusion-Exklusion-Prinzip durch
+		
+		\begin{displaymath}
+		\left|\indx{A}{1}\cup\ldots\cup\indx{A}{m}\right|=\sum\limits_{r=1}^{m}(-1)^{r-1}\sum\limits_{J\subset\underline{n},\left|J\right|=r}{|\bigcap\limits_{j\in J}\indx{A}{j}|}
+		\end{displaymath}
+		berechnen. Diese Formel lässt sich mittels Vollständige-Induktion über $m$ oder leicht aus der Siebformel von Sylvester-Poincare aus der Stochastik (siehe \cite{Kamps17}) beweisen. Wir wenden im Folgenden dem Inklusion-Exklusion-Prinzip auf die Berechnung von \hf{I}$(s)=\left|\indx{C(J,\tau)}{\leq s}\right|$ an.
+		
+		Aus $(\star)$ existiert $l\in\N$ und $\indx{\left((\indx{J}{i},\indx{\tau}{i})\right)}{i\in\underline{l}}$, sodass
+		
+		\begin{displaymath}
+		C(I)=\bigcup\limits_{(J,\tau)\in \chi}C(J,\tau)=\bigcup\limits_{i\in\underline{l}}C(\indx{J}{i},\indx{\tau}{i})
+		\end{displaymath}
+		
+		Sei $\indx{s}{0}:=\max{\{|\indx{\tau}{i}|:i\in\underline{l}\}}+1$. Für $s\geq \indx{s}{0}$ gilt  aus 2.Fall für alle $i\in \underline{l}$, dass
+		
+		\begin{displaymath}
+		\left|\indx{C(\indx{J}{i},\indx{\tau}{i})}{\leq s}\right|=\frac{s^{\indx{d}{i}}+O(s)}{\indx{d}{i}!}, \textnormal{ mit }grad(O(s))<{\indx{d}{i}}=n-|\indx{J}{i}|
+		\end{displaymath}
+		
+		Weiterhin haben wir im 2.Fall gesehen, dass der Schnitt von Mengen der Form $C(J,\tau)$ entweder leer oder von der Form $C(\indx{J}{0},\indx{\tau}{0})$ mit $\indx{J}{0}\supseteq J$ (mit $\indx{J}{0}\neq J$, falls die Tupel im Schnitt nicht gleich sind.). Aus dem 2.Fall gilt, dass $\left|\indx{C(J,\tau)}{\leq s}\right|$ für $s\geq |\tau|$ die Werte eines eindeutigen Polynom $\indx{F}{J,\tau}\in \mathbb{Q}[t]$ annimmt, dessen Koeffizienten eindeutig durch $d=n-|J|$ und $|\tau|$ ($=|\gamma| $ nach Definition $\tau$) festgelegt sind. Daraus folgt für $s\geq\indx{s}{0}$ die Existenz von \hp{I} $\in \mathbb{Q}[t]$ aus dem Inklusion-Exklusion-Prinzip.
+		
+		
+		Sei dann $\indx{d}{0}$, der größte $d\geq0$, sodass es existiert ein Tupel $(J,\tau)$ mit $C(J,\tau)\subset C(I)$ und $d=n-|J|$. Dann gilt
+		
+		\begin{displaymath}
+		\textnormal{\hp{I}}(t)=\sum\limits_{(J,\tau)\in \chi,\, \indx{d}{0}+|J|=n}{\indx{F}{J,\tau}(t)} +\Omega(t), \textnormal{ mit } grad(\Omega)<\indx{d}{0}\\
+		\end{displaymath}
+		
+		Aus dem 2.Fall erhält man, dass die Terme von Grad $\indx{d}{0}$ aufgrund deren positiven Leitkoeffizienten in der letzte Summe nicht verschwinden. Also $grad(\textnormal{\hp{I}(t)})=\indx{d}{0}$ und der führende Koeffizient ist $\frac{a}{\indx{d}{0}}>0$ mit $a\in\N$\\
+		
+		\item In diesem letzten Unterpunkt beweisen wir die Aussage in $a)$. Aus dem 4.Fall gilt, dass $grad(\textnormal{\hp{I}})$ die größte natürliche Zahl $d$ ist, sodass es ein $J\subset\underline{n}$ von $|J|=n-d$ und $\tau: J\rightarrow\N$ mit $C(J,\tau)\subset C(I)$  existiert. Dies auch äquivalent mit der Aussage, dass $grad(\textnormal{\hp{I}})$ gegeben ist, durch $n-m$, wobei $m\in\mathbb{N}$ die minimale Anzahl von Variablen $\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{m}}$ bezeichnet, sodass\\ $\alpha=(0,\ldots,\indx{\alpha}{\indx{i}{1}}=1,0,\ldots,0,\indx{\alpha}{\indx{i}{m}}=1,0,0)\in C(I)$ gilt.\\
+		
+		Behauptung: Es gilt: $I\cap k\left[\indx{X}{j}:j\notin J\right]={(0)}$, für alle Tupel $(J,\tau)$ sodass $C(J,\tau)\subset C(I)$.\\
+		
+		\begin{proof}[Beweis]
+			Angenommen es existiere $ 0\neq f\in I\cap k\left[\indx{X}{j}:j\notin J\right]$. Dann gilt 
+			$ 0\neq LT(f)\in LT(I)\cap k\left[\indx{X}{j}:j\notin J\right]$. Schreibt man weiterhin
+			
+			\begin{displaymath}
+			LT(f)=a\potx{X}{\alpha}, \textnormal{ mit } a\in\potx{k}{*}, \alpha\in\potx{\N}{n} 
+			\end{displaymath}
+			mit  $\indx{\alpha}{j}=0, \,\forall j\in J$ und $\gamma+\alpha \in C(J,\tau)\subset C(I)$ für ein $\gamma\in C(J,\tau)$, dann gilt 
+			
+			\begin{displaymath}
+			a\potx{X}{\gamma+\alpha}=a\potx{X}{\gamma}LT(f)\in(LT(I))\Rightarrow\exists\beta\in M:\potx{X}{\beta}\nmid\potx{X}{\gamma+\alpha}
+			\end{displaymath}
+			Dies ist  ein Widerspruch zu $\gamma+\alpha\in C(I)$, woraus die Behauptung folgt. \\
+		\end{proof} 
+		Da die letzte Aussage für jedes der in $(\star)$ vorkommenden $J$ gültig ist und $grad(\textnormal{\hp{I}})=\left|\{\indx{X}{j}:j\notin J\}\right|$ für ein mindestens eines solchen $J$ gilt, folgt
+		
+		\begin{align*}
+		grad(\textnormal{\hp{I}}(t))&\leq \max{\{d\in\underline{n}:\exists J\subset\underline{n}\, mit\,I\cap K[\indx{X}{j}:j\in J]=(0)\}}\\&
+		= \max{\{d\in\underline{n}:\exists \indx{i}{1},\ldots,\indx{i}{n}\underline{n}\; \textnormal{ mit }  1\leq\indx{i}{1}<\ldots<\indx{i}{n}\leq n\;\textnormal{ und }I\cap K[\indx{X}{j}:j\notin J]=(0)\}}:=\indx{d}{0}
+		\end{align*}
+		
+		, da jedes $J$ in $(\star)$ Teilmengen von $\underline{n}$ sind.
+		
+		Andererseits, falls $1\leq\indx{i}{1}<\ldots<\indx{i}{\indx{d}{0}}\leq n$, so gewählt sind, dass $I\cap K[\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{\indx{d}{0}}}]={0}$, dann ist die kanonische Abbildung 
+		\begin{displaymath}
+		\Pi:K[\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{\indx{d}{0}}}]\rightarrow\R/I
+		\end{displaymath}
+		injektiv und es folgt für alle $ s\in\N$
+		\begin{align*}
+		\textnormal{\hp{I}}(s)&=\textnormal{\hf{I}}(s)=\indx{dim}{k}(\indx{(\R/I)}{\leq s})\geq \indx{dim}{k}(\indx{(K[\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{\indx{d}{0}}}])}{\leq s})\\&
+		=\binom{s+\indx{d}{0}}{s}=\frac{s^{\indx{d}{0}}+O(s)}{\indx{d}{0}!}
+		\end{align*}
+		Da $grad(\binom{s+\indx{d}{0}}{s})=\indx{d}{0}\textnormal{ folgt } grad(\textnormal{\hp{I}})\geq \indx{d}{0}$. Daraus folgt $grad(\textnormal{\hp{I}})=\indx{d}{0}$, was zu zeigen war. 
 	\end{compactenum}
 \end{proof}
 
@@ -521,15 +530,15 @@ Beispiel in COX, Kap 9. \\
 \begin{definition}
 	Sei $V\subset k^n$ eine algebraische Menge und \hp{I(V)}(t) ist das Hilbert-Polynom von $I(V)\unlhd\R$ (nach Satz \ref{1.2.14} ist wohldefiniert und eindeutig). Für $V\neq\emptyset$ (d.h. $I(V)\neq\R$), wird die Dimension definiert als 
 	
-\begin{displaymath}
-dim(V)=grad(\textnormal{\hp{I(V)}}).
-\end{displaymath}
-Eine etwas handlichere Charakterisierung ist nach Satz \ref{1.2.14} durch:
-
-\begin{displaymath}
-dim(I(V))=\max{\{d\in\underline{n}:\exists{\,} 1\leq\indx{i}{1}<\ldots<\indx{i}{d}\leq n \textnormal{ mit } I\cap K[\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{d}}]=\{0\} \}}
-\end{displaymath}
-gegeben.\\
+	\begin{displaymath}
+	dim(V)=grad(\textnormal{\hp{I(V)}}).
+	\end{displaymath}
+	Eine etwas handlichere Charakterisierung ist nach Satz \ref{1.2.14} durch:
+	
+	\begin{displaymath}
+	dim(I(V))=\max{\{d\in\underline{n}:\exists{\,} 1\leq\indx{i}{1}<\ldots<\indx{i}{d}\leq n \textnormal{ mit } I\cap K[\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{d}}]=\{0\} \}}
+	\end{displaymath}
+	gegeben.\\
 \end{definition}
 Beispiel 1.2.6 in der Ausabeitung.[TODO] \\
 
@@ -538,17 +547,15 @@ $c)$ Behauptung: Sei $V\subset k^n$ algebraisch und $W\subseteq V$ eine abgeschl
 \begin{proof}[Beweis]
 	Sei $I(V)\subset\R$ und $I(W)\subset\R$. Da $W\subseteq V$ gilt
 	\begin{align*}
-	 &\Rightarrow I(V)\subseteq I(W)\\ & 
-	  \Rightarrow \indx{I(V)}{\leq s}\subseteq \indx{I(W)}{\leq s}\\&
-	  \Rightarrow \textnormal{\hf{I(V)}}(s)=\indx{dim}{k}(\indx{(\R/I(V))}{\leq s})\geq \indx{dim}{k}(\indx{(\R/I(W))}{\leq s})= \textnormal{\hf{I(W)}}(s),\; \forall s\in \N \\&
-	  \Rightarrow \textnormal{\hp{I(V)}}(s) \geq \textnormal{\hp{I(W)}}(s),\; \forall s\in \N \\&
-	  \stackrel{\textnormal{Wachstum Argument für Polynome}}{\Rightarrow}grad(\textnormal{\hp{I(V)}}) \geq grad(\textnormal{\hp{I(W)}}) \\&
-	  \stackrel{\textnormal{Definition}}{\Rightarrow} dim(I(V))\geq dim(I(W))
+	&\Rightarrow I(V)\subseteq I(W)\\ & 
+	\Rightarrow \indx{I(V)}{\leq s}\subseteq \indx{I(W)}{\leq s}\\&
+	\Rightarrow \textnormal{\hf{I(V)}}(s)=\indx{dim}{k}(\indx{(\R/I(V))}{\leq s})\geq \indx{dim}{k}(\indx{(\R/I(W))}{\leq s})= \textnormal{\hf{I(W)}}(s),\; \forall s\in \N \\&
+	\Rightarrow \textnormal{\hp{I(V)}}(s) \geq \textnormal{\hp{I(W)}}(s),\; \forall s\in \N \\&
+	\stackrel{\textnormal{Wachstum Argument für Polynome}}{\Rightarrow}grad(\textnormal{\hp{I(V)}}) \geq grad(\textnormal{\hp{I(W)}}) \\&
+	\stackrel{\textnormal{Definition}}{\Rightarrow} dim(I(V))\geq dim(I(W))
 	\end{align*}
 \end{proof}
 Daraus lässt sich erkennen, dass die obige Definition der Dimension einer affine-Varietät und seinem Analogon für $k$-Vektorräume gewisse Ähnlichkeiten aufweisen, denn das obige Ergebnis für $k$-Vektorräume bekanntlich gilt. Die folgende Proposition jedoch hebt den ersten Unterschied zwischen diesen beiden Strukturen hervor und lautet
-
-\section{Weitere Folgerungen}
 
 \begin{proposition}
 	Sei $V\subseteq k^n$ algebraisch und $V=\bigcup\limits_{i\in\underline{r}}\indx{V}{i}$ eine Zerlegung in irreduziblen Komponenten (vgl. Proposition 1.1.11). Dann gilt
@@ -580,7 +587,7 @@ Im Folgenden wollen wir eine andere Charakterisierung von $dim(V)$ angeben.
 	\begin{displaymath}
 	\indx{\partial}{k}(A):=\sup{\{m\geq0:\;\exists\; m \;\textnormal{algebraisch unabhängige Elemente in}\; A\}}
 	\end{displaymath}
-Bemerkung: Falls A ein Körper ist, dann nennt man $\indx{\partial}{k}(A)$ der transcendenz Grad von $A$ über $k$.\\
+	Bemerkung: Falls A ein Körper ist, dann nennt man $\indx{\partial}{k}(A)$ der transcendenz Grad von $A$ über $k$.\\
 \end{definition}
 
 
@@ -622,17 +629,17 @@ Eigenschaften von $\indx{\partial}{k}(A)$: [TODO]\\
 			=\potx{f}{s-|\alpha|}\potx{\indx{f}{1}}{\indx{\alpha}{1}}.\ldots.\potx{\indx{f}{r}}{\indx{\alpha}{r}} \; \textnormal{mit}\; N=\max{\{grad(f),grad(\indx{f}{1}),\ldots,grad(\indx{f}{r})\}}.
 			\end{align*}
 			
-		Sei $\beta(g)=\potx{f}{s}g(\frac{\indx{f}{1}}{f},\ldots,\frac{\indx{f}{r}}{f})+\indx{I}{\leq Ns}$. Wir zeigen nun, dass $\beta$ injektiv ist. Dazu sei $g\in \indx{k[\indx{Y}{1},\ldots,\indx{Y}{r}]}{\leq s}$, sodass $\potx{f}{s}g(\frac{\indx{f}{1}}{f},\ldots,\frac{\indx{f}{r}}{f})\in\indx{I}{\leq Ns}\subset I$. In $R$ bedeutet dies
-		\begin{align*}
-		[f]^sg(\indx{\phi}{1},\ldots,\indx{\phi}{r})=0&\stackrel{[f]\neq0,R\;IB}{\Rightarrow} g(\indx{\phi}{1},\ldots,\indx{\phi}{r})=0\\&
-		\stackrel{\indx{f}{i},f\neq0 \in \R \;\textnormal{bel gewählt}}{\Rightarrow}\;  g=0\\&
-		\Rightarrow \beta\;\textnormal{ist injektiv}
-		\end{align*} 
-		
-		Also \hp{I}$(Ns)\geq \indx{dim}{k}(\indx{k[\indx{Y}{1},\ldots,\indx{Y}{r}]}{\leq s})=\binom{r+s}{r}$=$\frac{(r+s)(r+s-1).\ldots.(s+1)}{r!},\; \textnormal{ für alle } \; s\in \N$. Für $s$ groß genug gilt \hp{I}$(Ns)=O(s^d)$ und $\binom{r+s}{r}=O(s^r)$. Daraus folgt $d\geq r$.
+			Sei $\beta(g)=\potx{f}{s}g(\frac{\indx{f}{1}}{f},\ldots,\frac{\indx{f}{r}}{f})+\indx{I}{\leq Ns}$. Wir zeigen nun, dass $\beta$ injektiv ist. Dazu sei $g\in \indx{k[\indx{Y}{1},\ldots,\indx{Y}{r}]}{\leq s}$, sodass $\potx{f}{s}g(\frac{\indx{f}{1}}{f},\ldots,\frac{\indx{f}{r}}{f})\in\indx{I}{\leq Ns}\subset I$. In $R$ bedeutet dies
+			\begin{align*}
+			[f]^sg(\indx{\phi}{1},\ldots,\indx{\phi}{r})=0&\stackrel{[f]\neq0,R\;IB}{\Rightarrow} g(\indx{\phi}{1},\ldots,\indx{\phi}{r})=0\\&
+			\stackrel{\indx{f}{i},f\neq0 \in \R \;\textnormal{bel gewählt}}{\Rightarrow}\;  g=0\\&
+			\Rightarrow \beta\;\textnormal{ist injektiv}
+			\end{align*} 
+			
+			Also \hp{I}$(Ns)\geq \indx{dim}{k}(\indx{k[\indx{Y}{1},\ldots,\indx{Y}{r}]}{\leq s})=\binom{r+s}{r}$=$\frac{(r+s)(r+s-1).\ldots.(s+1)}{r!},\; \textnormal{ für alle } \; s\in \N$. Für $s$ groß genug gilt \hp{I}$(Ns)=O(s^d)$ und $\binom{r+s}{r}=O(s^r)$. Daraus folgt $d\geq r$.
 		\end{proof}
 	\end{compactenum}
-Also insgesamt gilt $d=r\; \textnormal{ und somit } \; grad (\textnormal{\hp{I}})=\indx{\partial}{k}(A)=\indx{\partial}{k}(K)$ sowie $dim(V)= \indx{\partial}{k}(A[V])$ mit $A[V]/I(V)$ für beliebige $V\subset k^n$.\\
+	Also insgesamt gilt $d=r\; \textnormal{ und somit } \; grad (\textnormal{\hp{I}})=\indx{\partial}{k}(A)=\indx{\partial}{k}(K)$ sowie $dim(V)= \indx{\partial}{k}(A[V])$ mit $A[V]/I(V)$ für beliebige $V\subset k^n$.\\
 \end{proof}
 Beispiel in Ausarbeitung:[TODO]\\
 
@@ -645,17 +652,17 @@ In Bsp 1.2.6 $c)$ wurde gezeigt, dass für $V\subseteq k^n$ algebraisch und $W\s
 \begin{proof}[Beweis]
 	Es gilt wegen Bsp 1.2.16 $c)$, dass $dim(W)\leq dim(V)$. Angenommen es gelte $d:=dim(W)=dim(V)$. Dann gilt $I(V)\subsetneq I(W)$ mit (1.1.7). Sei $0\neq f\in I(W)\setminus I(V)$. Mit Satz \ref{1.2.14} gilt, dass es \dkette{i}{d} mit $ 1\leq\indx{i}{1}<\ldots<\indx{i}{d}\leq n \textnormal{ mit } I(W)\cap K[\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{d}}]=(0)$ existieren. Mit Proposition.9.1 gilt weiterhin, dass $[\indx{X}{\indx{i}{1}}],\ldots,[\indx{X}{\indx{i}{d}}] \in A[W]$ algebraisch unabhängig in $A[W]$ ist. Nun gilt $f,\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{d}}$ kann nicht mehr algebraisch unabhängig sein  modulo $I(V)$ (Nach Definition von $d$).
 	D.h. es existiert $0\neq F\in k[Y,\indx{Y}{1},\ldots,\indx{Y}{d}]$ sodass $F(f,\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{d}})\in I(V)$. Da $V$ irreduzibel ist, gilt $I(V)$ ist ein Primideal. Man kann also annehmen, dass $F\in k[Y,\indx{Y}{1},\ldots,\indx{Y}{d}]$ ist irreduzibel.
-Schreibt man $F$ wie folgt, 
+	Schreibt man $F$ wie folgt, 
 	\begin{displaymath}
 	F(Y,\indx{Y}{1},\ldots,\indx{Y}{d})=\sum_{i=0}^{r}\indx{F}{i}\potx{Y}{i},\; \textnormal{mit}\;  \indx{F}{i}\in k[\indx{Y}{1},\ldots,\indx{Y}{d}].
 	\end{displaymath}
 	
 	Es gilt, da $F$ irreduzibel ist, dass $Y\nmid F$. Daraus folgt $\indx{F}{0}(\indx{Y}{1},\ldots,\indx{Y}{d})\neq0 \in k[\indx{Y}{1},\ldots,\indx{Y}{d}]$. Nun gilt, da $I(V)\subset I(W)$ 
 	\begin{align*}
-&\indx{F}{0}(\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{d}})+I(W)=F(f,\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{d}})+I(W)=I(W)\\&
-\Rightarrow \; \indx{F}{0}(\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{d}})+I(W)=I(W)\\&
-\Rightarrow \; \indx{F}{0}([\indx{X}{\indx{i}{1}}],\ldots,[\indx{X}{\indx{i}{d}}]) \in A[W]\\&
-\Rightarrow\; [\indx{X}{\indx{i}{1}}],\ldots,[\indx{X}{\indx{i}{d}}]\in A[W]\; \textnormal{ist nicht algebraisch unabhängig in }A[W],\;\textnormal{da $\indx{F}{0}(\indx{Y}{1},\ldots,\indx{Y}{d})\neq0$ (Widerspruch)}\\& 
+	&\indx{F}{0}(\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{d}})+I(W)=F(f,\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{d}})+I(W)=I(W)\\&
+	\Rightarrow \; \indx{F}{0}(\indx{X}{\indx{i}{1}},\ldots,\indx{X}{\indx{i}{d}})+I(W)=I(W)\\&
+	\Rightarrow \; \indx{F}{0}([\indx{X}{\indx{i}{1}}],\ldots,[\indx{X}{\indx{i}{d}}]) \in A[W]\\&
+	\Rightarrow\; [\indx{X}{\indx{i}{1}}],\ldots,[\indx{X}{\indx{i}{d}}]\in A[W]\; \textnormal{ist nicht algebraisch unabhängig in }A[W],\;\textnormal{da $\indx{F}{0}(\indx{Y}{1},\ldots,\indx{Y}{d})\neq0$ (Widerspruch)}\\& 
 	\end{align*}
 	
 	Also unsere Annahme muss falsch gewesen sein und es gilt $dim(V)>dim(W)$
@@ -663,24 +670,18 @@ Schreibt man $F$ wie folgt,
 
 
 \begin{thebibliography}{99}
-	\bibitem{Heu03}
-	\textsc{Heuser}, Harro:
-	\newblock \emph{Lehrbuch der Analysis}.
-	\newblock 15. Aufl.
-	\newblock Vieweg-Verlag, Braunschweig-Wiesbaden, 2003
-	
-	\bibitem{GM-GM}
-	\textsc{Gr{\"o}ger}, Detlef ; \textsc{Marti}, Kurt:
-	\newblock \emph{Grundkurs Mathematik für Ingenieure, Natur- und
-		Wirtschaftswissenschaftler}.
-	\newblock 2.~Aufl.
-	\newblock Physica-Verlag, 2004
-
 	\bibitem{CLOS}
 	\textsc{Cox}, David; \textsc{Little}, John; \textsc{O'Shea}, Donal:
 	\newblock \emph{Ideals, Varieties, and Algorithms}.
 	\newblock Third Edition
 	\newblock Springer-Verlag, 2007
+	
+	\bibitem{Kamps17}
+	\textsc{Udo Kamps}, Erhard Cramer :
+	\newblock \emph{Grundzüge der Stochastik, Skript für Bachelorstudierende}.
+	\newblock 2. Aufl.
+	\newblock §3, Seite 36
+	
 \end{thebibliography}
 
 
