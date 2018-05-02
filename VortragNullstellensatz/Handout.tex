@@ -25,11 +25,6 @@
 \begin{document}
 
 \maketitle
-%\tableofcontents
-
-\section{Abstract}
-\section{Einleitung}
-\section{Hyperebenen}
 	
 	\begin{satz}[Hilbert's Nullstellensatz für Hyperebenen]
 	Sei k algebraisch abgeschlossen, \(f \in k[X_1,\ldots,X_n]\) nicht
@@ -40,8 +35,6 @@
 	\mathbf{I}(H_f) = (f_1\cdots f_r). \end{displaymath}
 	Insbesondere gilt, falls f irreduzibel ist, dass \(\mathbf{I}(H_f) = (f)\).
 	\end{satz}
-
-\section{Schwache Form}
 
 	\begin{definition}[Algebraische Elemente]
 	Sei A eine k-Algebra. Dann heißt die Menge \(a_1,\ldots, a_m \in A\)
@@ -69,20 +62,6 @@
 	und C ist ein endlich erzeugter A-Modul.
 	\end{enumerate}
 	\end{lemma}
-
-	\begin{proof}[Beweis]
-	(\(1 \Rightarrow 2\)): Es ist \(A[b] = \{f(b)\;|\;f\in A[X]\}\)
-	und da b ganz ist, existiert ein Polynom \(0 \neq g \in A[X]\) mit \(g(b) 
-	= 0\) und \(Grad(g) = n \geq 1\). Da \(A[X]\) ein euklidischer Ring ist, können
-	wir jedes \(f \in A[X]\) schreiben als \(f = qg + r\) mit \(q,r \in A[X]\)
-	und \(Grad(r) < n\). Also \(f(b) = q(b)*g(b) + r(b) = r(b)\) und f ist eine
-	A-Linearkombination von \(1, b, b^2, \ldots, b^{n-1}\), also ist \(A[b]\)
-	endlich generiert. \\
-	(\(2 \Rightarrow 3\)): Setze \(C := A[b]\), dann ist C ein Teilring von B
-	und die Aussage folgt. \\
-	(\(3 \Rightarrow 1\)): Seien \(c_1, \ldots, c_n \in C\) mit \(C =
-	\sum_{i=1}^n Ac_i\). TODO
-	\end{proof}
 
 	\begin{korollar}
 	Sei A, B kommutative Ringe mit \(A \subseteq B\).
@@ -113,10 +92,5 @@
 	X_n-v_n)\) mit \(v_i \in k\). Allgemeiner gilt, falls A eine beliebige
 	k-Algebra ist, dass \(A/I \cong k\) für jedes maximale Ideal I in A.
 	\end{satz}
-
-
-\section{Normale Form}
-\section{Starke Form}
-\section{Anwendung}
 
 \end{document}
