@@ -59,7 +59,7 @@
 	Außerdem heißt B ganz über A, wenn jedes Element aus B ganz über A ist.
 	\end{definition}
 
-	\begin{lemma}
+	\begin{lemma} \label{2.1.1}
 	Sei \(b \in B\). Dann ist äquivalent:
 	\begin{enumerate}
 	\item b ist ganz über A
@@ -102,19 +102,59 @@
 	Behauptung folgt.
 	\end{proof}
 
-	\begin{korollar}
+	\begin{korollar} \label{2.1.2}
 	Seien A, B kommutative Ringe mit \(A \subseteq B\).
 	\begin{enumerate}
-	\item Falls \(B = A[b_1, \ldots, b_n]\), wobei jedes \(b_i \in B\) ganz über
-	\(A[b_1, \ldots, b_{i-1}]\) ist, dann ist B endlich erzeugter A-Modul und 
-	ganz über A.
-	\item Die Menge \(\bar{A}_B := \{b \in B\;|\;b \text{ ganz über } A\}\) ist
+	\item\label{2.1.2 a} Falls \(B = A[b_1, \ldots, b_n]\), wobei jedes \(b_i
+	\in B\) ganz über \(A[b_1, \ldots, b_{i-1}]\) ist, dann ist B endlich
+	erzeugter A-Modul und ganz über A.
+	\item Die Menge \(\overline{A}_B := \{b \in B\;|\;b \text{ ganz über } A\}\) ist
 	ein Teilring von B und heißt ganzer Abschluss von A in B.
 	\item Sei \(C \subseteq B\) ein Teilring mit \(A \subseteq C\). Falls C
 	ganz ist über A und B ganz ist über C, dann ist auch B ganz über A.
 	\item Falls B ein Körper ist und ganz über A, dann ist A auch ein Körper.
 	\end{enumerate}
 	\end{korollar}
+
+	\begin{proof}[Beweis]
+	\begin{enumerate}
+	\item Beweis durch Induktion über \(n \in \mathbb{N}\).\\
+	\(n = 1\): Sei \(B_n = B_1 = A[b_1]\) und \(b_1\) ganz über A. Dann folgt
+	mit Lemma~\ref{2.1.1}, dass \(A[b_1]\) ein endlich erzeugter A-Modul ist
+	und \(A[b_1]\) ganz über A ist. \\
+	Angenommen die Behauptung gilt für ein beliebiges, aber festes \(n \in
+	\mathbb{N}\). \\
+	\(n \rightarrow n+1\): Sei \(B_{n+1} = A[b_1,\ldots,b_{n+1}]\) und \(b_i\) 
+	ganz über \(B_{i-1}\) für jedes \(i \in \underline{n+1}\). Nach
+	Induktionsvoraussetzung wissen wir, dass \(B_n\) endlich erzeugter A-Modul
+	und ganz über A ist. Außerdem ist \(b_{n+1}\) ganz über \(B_n\) und damit
+	auch \(B_n[b_{n+1}] \cong B_{n+1}\) endlich erzeugter A-Modul und \colorbox{red}{TODO}
+	\item Zu zeigen ist nach Untergruppenkriterium, dass für \(b, b' \in 
+	\overline{A}_B\) auch \(bb', b-b' \in \overline{A}_B\) und \(1 \in
+	\overline{A}_B\). \\
+	Die \(1\) ist offensichtlich ganz über A, also gilt \(1 \in \overline{A}_B\).
+	Es sind \(b, b'\) ganz in A, also auch b' ganz in \(A[b]\), also folgt mit
+	(\ref{2.1.2 a}), dass alle Elemente aus \(A[b,b']\) ganz über A sind, also
+	insbesondere \(bb'\) und \(b-b'\). Also ist \(\overline{A}_B\) ein Unterring
+	von B.
+	\item B ist ganz über C, also gilt für ein \(b \in B\), dass
+	\(b^m + c_{m-1}b^{m-1} + \ldots + c_0 = 0\) mit \(m \geq 1, c_i \in C\).
+	Da \(c_0, \ldots, c_{m-1}\) ganz sind in A, ist (\ref{2.1.2 a}) anwendbar
+	und \(A[c_0, \ldots, c_{m-1}]\) ist endlich erzeugter A-Modul und ganz über A.
+	Außerdem ist \(b\) ganz über \(A[c_0, \ldots, c_{m-1}]\) und mit nochmaliger
+	Anwendung folgt, dass auch \(C':=A[c_0, \ldots, c_{m-1}, b]\) endlich erzeugter
+	A-Modul und ganz über A ist. Also \(A[b] \subseteq C' \subseteq B\) und
+	mit Lemma~\ref{2.1.1} folgt, dass b ganz ist über A.
+	\item A ist ein Ring, also müssen wir zeigen, dass \(A* = A-\{0\}\) ist.
+	Sei \(a \in A \subseteq B\). Dann existiert \(b \in B\) mit \(ab = 1\).
+	\(b\) ist ganz in A, also existieren \(a_i \in A\) und \(m \geq 1\) mit
+	\begin{align*} &b^m + a_{m-1}b^{m-1} + \ldots + a_0 = 0 \\
+	\Leftrightarrow\quad &b^ma^{m-1} + a_{m-1}b^{m-1}a^{m-1} + \ldots + a_0a^{m-1} = 0 \\
+	\Leftrightarrow\quad &b = -(a_{m-1}b^{m-1}a^{m-1} + \ldots + a_0a^{m-1}) \in A.
+	\end{align*}
+	Also ist A ein Körper.
+	\end{enumerate}
+	\end{proof}
 
 	Eine k-Algebra ist im Folgenden immer eine kommutative, assoziative
 	k-Algebra mit Eins.
