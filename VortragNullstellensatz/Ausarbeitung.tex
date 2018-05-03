@@ -77,11 +77,29 @@
 	wir jedes \(f \in A[X]\) schreiben als \(f = qg + r\) mit \(q,r \in A[X]\)
 	und \(Grad(r) < n\). Also \(f(b) = q(b)*g(b) + r(b) = r(b)\) und f ist eine
 	A-Linearkombination von \(1, b, b^2, \ldots, b^{n-1}\), also ist \(A[b]\)
-	endlich generiert. \\
+	endlich erzeugt. \\
 	(\(2 \Rightarrow 3\)): Setze \(C := A[b]\), dann ist C ein Teilring von B
 	und die Aussage folgt. \\
 	(\(3 \Rightarrow 1\)): Seien \(c_1, \ldots, c_n \in C\) mit \(C =
-	\sum_{i=1}^n Ac_i\). TODO
+	\sum_{i=1}^n Ac_i\). Es gilt \(b \in A[b] \subseteq C\), also auch \(bc_i
+	\in C\) und es existieren die \(a_{ij} \in A\) mit \(bc_i = \sum_{j=1}^n
+	a_{ij}c_i\). Sei \(A \in A^{n\times n}\) eine Matrix mit \((A)_{i,j} =
+	a_{ij}\) für alle \(i, j \in \underline{n}\) und \(v \in A^n\) der Vektor
+	mit \(v_i = c_i\) wie oben. Dann entsprechen die obigen Gleichungen dem
+	Gleichungssystem
+	\begin{displaymath}Av = bv \Leftrightarrow (A-I_n)v = 0.\end{displaymath}
+	Die Cramersche Regel besagt, dass \(v_i = \frac{Det((A-I_n)_i)}{Det(A-I_n)}
+	\Leftrightarrow v_iDet(A-I_n) = Det((A-I_n)_i)\), wobei in die Matrix
+	\((A-I_n)_i \) in unserem Fall nur Nullen in der i-ten Spalte stehen. Also
+	gilt \begin{displaymath} Det((A-I_n)_i) = 0 \Rightarrow v_iDet(A-I_n) = 0.
+	\end{displaymath}
+	Wir müssen noch zeigen, dass daraus \(Det(A-I_n) = 0\) folgt, denn dann 
+	können wir die Determinante ausschreiben und \(1, b, \ldots\) wird linear
+	abhängig über A, also ist b ganz über A. \\
+	Es ist \(1 \in C\), also existiert eine Linearkombination \(1 =
+	\sum_{i=1}^n a_ic_i \Leftrightarrow Det(M-I_n) = \sum_{i=1}^n
+	a_ic_iDet(M-I_n) = 0\). Also gilt \(Det(A-I_n) = 0\) und die
+	Behauptung folgt.
 	\end{proof}
 
 	\begin{korollar}
