@@ -1,0 +1,96 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{ngerman}
+\usepackage{lmodern}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[paper=a4paper,left=25mm,right=25mm,top=25mm]{geometry}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{paralist}
+\usepackage{color}
+
+\newtheorem{satz}{Satz}
+\newtheorem{definition}[satz]{Definition}
+\newtheorem{lemma}[satz]{Lemma}
+\newtheorem{proposition}[satz]{Proposition}
+\newtheorem{korollar}[satz]{Korollar}
+
+\title{Hilbert's Nullstellensatz}
+\date{\today}
+\author{Yvan Ngumeteh \and Emma Ahrens}
+
+\begin{document}
+
+\maketitle
+	
+	\begin{satz}[Hilbert's Nullstellensatz für Hyperebenen]
+	Sei k algebraisch abgeschlossen, \(f \in k[X_1,\ldots,X_n]\) nicht
+	konstant und \(\emptyset \neq H_f \subseteq k^n\) die korrespondierende
+	Hyperebene. Wir können f schreiben als \(f = f_1^{n_1}\cdots f_r^{n_r}\)
+	mit \(f_1,\ldots,f_r\) irreduzibel und paarweise teilerfremd. Dann ist
+	\begin{displaymath} H_f = H_{f_1} \cup \cdots \cup H_{f_r} \text{und }
+	\mathbf{I}(H_f) = (f_1\cdots f_r). \end{displaymath}
+	Insbesondere gilt, falls f irreduzibel ist, dass \(\mathbf{I}(H_f) = (f)\).
+	\end{satz}
+
+	\begin{definition}[Algebraische Elemente]
+	Sei A eine k-Algebra. Dann heißt die Menge \(a_1,\ldots, a_m \in A\)
+	algebraisch unabhängig, falls kein Polynom \(0 \neq F \in k[X_1,\ldots,X_m]
+	\) existiert mit \(F(a_1,\ldots,a_m) = 0\).
+	\end{definition}
+
+	Im Folgenden sind A und B kommmutative Ringe mit Eins und \(A \subseteq B\).
+
+	\begin{definition}[Ganze Elemente]
+	Wir nennen \(b \in B\) ganz über A, wenn es Elemente \(a_1, \ldots, a_n \in
+	A\) gibt mit
+	\begin{displaymath} b^n + a_{n-1}b^{n-1} + \cdots + a_1b + a_0 = 0
+	\end{displaymath} für ein \(n \in \mathbb{N}\).
+	Außerdem heißt B ganz über A, wenn jedes Element aus B ganz über A ist.
+	\end{definition}
+
+	\begin{lemma}
+	Sei \(b \in B\). Dann ist äquivalent:
+	\begin{enumerate}
+	\item b ist ganz über A
+	\item Der von b erzeugte Teilring \(A[b] \subseteq B\) ist ein endlich
+	erzeugter A-Modul.
+	\item Es existiert ein Teilring \(C \subseteq B\) mit \(A[b] \subseteq C\)
+	und C ist ein endlich erzeugter A-Modul.
+	\end{enumerate}
+	\end{lemma}
+
+	\begin{korollar}
+	Seien A, B kommutative Ringe mit \(A \subseteq B\).
+	\begin{enumerate}
+	\item Falls \(B = A[b_1, \ldots, b_n]\), wobei jedes \(b_i \in B\) ganz über
+	\(A[b_1, \ldots, b_{i-1}]\) ist, dann ist B endlich erzeugter A-Modul und 
+	ganz über A.
+	\item Die Menge \(\bar{A}_B := \{b \in B\;|\;b \text{ ganz über } A\}\) ist
+	ein Teilring von B und heißt ganzer Abschluss von A in B.
+	\item Sei \(C \subseteq B\) ein Teilring mit \(A \subseteq C\). Falls C
+	ganz ist über A und B ganz ist über C, dann ist auch B ganz über A.
+	\item Falls B ein Körper ist und ganz über A, dann ist A auch ein Körper.
+	\end{enumerate}
+	\end{korollar}
+
+	Eine k-Algebra ist im Folgenden immer eine kommutative, assoziative
+	k-Algebra mit Eins.
+
+	\begin{satz}[Noetherscher Normalisierungssatz]
+	Sei A eine endlich erzeugte k-Algebra. Dann existieren algebraisch
+	unabhängige Elemente \(a_1, \ldots, a_d \in A\), so dass A ganz ist über
+	dem Teilring \(k[a_1, \ldots, a_d]\).
+	\end{satz}
+
+	\begin{satz}[Schwache Form von Hilbert's Nullstellensatz]
+	Sei k algebraisch abgeschlossen. Dann sind die maximalen Ideale in
+	\(k[X_1, \ldots, X_n]\) genau die Ideale der Form \((X_1-v_1,\ldots,
+	X_n-v_n)\) mit \(v_i \in k\). Allgemeiner gilt, falls A eine beliebige
+	k-Algebra ist, dass \(A/I \cong k\) für jedes maximale Ideal I in A.
+	\end{satz}
+
+\end{document}
