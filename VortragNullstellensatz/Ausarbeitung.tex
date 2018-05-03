@@ -18,7 +18,7 @@
 \newtheorem{proposition}[satz]{Proposition}
 \newtheorem{korollar}[satz]{Korollar}
 
-\title{Dimension von Varietäten}
+\title{Hilbert's Nullstellensatz}
 \date{\today}
 \author{Yvan Ngumeteh \and Emma Ahrens}
 
@@ -36,7 +36,7 @@
 	konstant und \(\emptyset \neq H_f \subseteq k^n\) die korrespondierende
 	Hyperebene. Wir können f schreiben als \(f = f_1^{n_1}\cdots f_r^{n_r}\)
 	mit \(f_1,\ldots,f_r\) irreduzibel und paarweise teilerfremd. Dann ist
-	\begin{displaymath} H_f = H_{f_1} \cup \cdots \cup H_{f_r} \quad and \quad
+	\begin{displaymath} H_f = H_{f_1} \cup \cdots \cup H_{f_r} \text{und }
 	\mathbf{I}(H_f) = (f_1\cdots f_r). \end{displaymath}
 	Insbesondere gilt, falls f irreduzibel ist, dass \(\mathbf{I}(H_f) = (f)\).
 	\end{satz}
@@ -63,7 +63,7 @@
 	Sei \(b \in B\). Dann ist äquivalent:
 	\begin{enumerate}
 	\item b ist ganz über A
-	\item Der von b generierte Teilring \(A[b] \subseteq B\) ist ein endlich
+	\item Der von b erzeugte Teilring \(A[b] \subseteq B\) ist ein endlich
 	erzeugter A-Modul.
 	\item Es existiert ein Teilring \(C \subseteq B\) mit \(A[b] \subseteq C\)
 	und C ist ein endlich erzeugter A-Modul.
@@ -85,12 +85,12 @@
 	\end{proof}
 
 	\begin{korollar}
-	Sei A, B kommutative Ringe mit \(A \subseteq B\).
+	Seien A, B kommutative Ringe mit \(A \subseteq B\).
 	\begin{enumerate}
 	\item Falls \(B = A[b_1, \ldots, b_n]\), wobei jedes \(b_i \in B\) ganz über
 	\(A[b_1, \ldots, b_{i-1}]\) ist, dann ist B endlich erzeugter A-Modul und 
 	ganz über A.
-	\item Die Menge \(\bar{A}_B := \{b \in B\;|\;b ganz \ddot{u}ber A\}\) ist
+	\item Die Menge \(\bar{A}_B := \{b \in B\;|\;b \text{ ganz über } A\}\) ist
 	ein Teilring von B und heißt ganzer Abschluss von A in B.
 	\item Sei \(C \subseteq B\) ein Teilring mit \(A \subseteq C\). Falls C
 	ganz ist über A und B ganz ist über C, dann ist auch B ganz über A.
