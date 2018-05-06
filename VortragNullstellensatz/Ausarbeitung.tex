@@ -158,12 +158,97 @@
 
 	Eine k-Algebra ist im Folgenden immer eine kommutative, assoziative
 	k-Algebra mit Eins.
+	
+	\begin{lemma}\label{tupelvergleich}
+	Sei \(M \subseteq \mathbb{N}^n_0\) und \(N(\alpha) = \sum^{n-1}_{i=0}
+	\alpha_{n-i}r^i\) für ein \(r \in \mathbb{N}\), das größer ist
+	als jede Komponente jedes Elements aus M. Dann gilt für \(\alpha, \alpha'
+	\in M_n\) und \(\alpha \neq \alpha'\), dass \(N(\alpha) \neq N(\alpha')\).
+	\end{lemma}
+
+	\begin{proof}[Beweis]
+	Wir führen eine Induktion über \(n \in \mathbb{N}\).
+
+	Sei \(n = 1\) und \(\alpha, \alpha' \in M_n\) mit \(\alpha \neq \alpha'\)
+	und \(N(\alpha) = N(\alpha')\). Dann folgt
+	\begin{align*} \sum^{n-1}_{i=0} \alpha_{n-i}r^i &= \sum^{n-1}_{i=0}
+	\alpha'_{n-i}r^i \\ \Leftrightarrow \alpha_{1} &= \alpha'_{1}. \end{align*}
+	Das ist ein Widerspruch, also \(N(\alpha) \neq N(\alpha')\).
+
+	Sei \(n > 1\) mit \(\alpha \neq \alpha'\) und \(N(\alpha) = N(\alpha')\).
+	Falls \(\alpha_n = \alpha'_n\), betrachten wir \(\beta = (\alpha_1,\ldots,
+	\alpha_{n-1})\) und \(\beta' = (\alpha'_1,\ldots,\alpha'_{n-1})\).
+	Sonst folgt
+	\begin{align*} \sum^{n-1}_{i=1} \alpha_{n-i}r^i &= \sum^{n-1}_{i=0}
+	\alpha'_{n-i}r^i \\
+	\Leftrightarrow \alpha_0 + \sum^{n-1}_{i=1} \alpha_{n-i}r^i &=
+	\alpha'_0 + \sum^{n-1}_{i=0} \alpha'_{n-i}r^i \\
+	\Leftrightarrow \sum^{n-1}_{i=1} \alpha_{n-i}r^i - \sum^{n-1}_{i=1}
+	\alpha'_{n-i}r^i &= \alpha'_0 - \alpha_0 \\
+	\Leftrightarrow (\sum^{n-1}_{i=1} \alpha_{n-i}r^{i-1} - \sum^{n-1}_{i=1}
+	\alpha'_{n-i}r^{i-1})r &= \alpha'_0 - \alpha_0
+	\end{align*}
+	Es ist \(r > |\alpha'_0 - \alpha_0| > 0\) nach Voraussetzung, aber
+	\(r\;|\;\alpha'_0 - \alpha_0\). Also haben wir einen Widerspruch und damit
+	folgt insgesamt per Induktion die Behauptung.
+	\end{proof}
 
 	\begin{satz}[Noetherscher Normalisierungssatz]
 	Sei A eine endlich erzeugte k-Algebra. Dann existieren algebraisch
 	unabhängige Elemente \(a_1, \ldots, a_d \in A\), so dass A ganz ist über
 	dem Teilring \(k[a_1, \ldots, a_d]\).
 	\end{satz}
+
+	\begin{proof}[Beweis]
+	Da A eine endlich erzeugte k-Algebra ist, existieren \(a_1,\ldots,a_n\) mit
+	\(A = k[a_1,\ldots,a_n]\), \(a_i \in A\). Wir führen nun eine Induktion
+	über \(n \in \mathbb{N}\).
+
+	Sei \(n=0\). Dann ist \(A=k\) und die Behauptung folgt.
+
+	Sei nun \(n > 0\). Angenommen \(a_1,\ldots,a_n\) sind algebraisch unabhängig,
+	dann ist A auch ganz über \(k[a_1,\ldots,a_n]\) und die Behauptung folgt.
+	Wir nehmen also an, dass \(a_1,\ldots,a_n\) nicht algebraisch unabhängig sind.
+	Dann existiert ein nichtkonstantes Polynom \(F \in  k[X_1,\ldots,X_n]\)	mit
+	\(F(a_1,\ldots,a_n) = 0\).
+	Im Folgenden zeigen wir, dass (ggf. nach Umnummerierung) \(a_n\) ganz über
+	\(k[a_1,\ldots,a_{n-1}]\) ist, wir das Problem also auf \(a_1,\ldots,a_{n-1}\)
+	zurückführen können.
+
+	Da F nicht konstant ist, hat F ohne Beschränkung der Allgemeinheit (bzw.
+	nach Umnummerierung) irgendwo die Variable \(X_n\). Außerdem ist
+	\begin{displaymath} F = \sum_{\alpha \in \mathbb{N}^n_0} a_{\alpha}X^{\alpha}
+	\text{ mit } a_{\alpha}\in k.\end{displaymath}
+	Wir definieren \(N(\alpha) = \sum^{n-1}_{i=0} \alpha_{n-i}r^i\) für
+	\(\alpha \in \mathbb{N}^n_0\). Dabei wählen wir ein \(r \in \mathbb{N}\),
+	das größer ist als jede Komponente jedes \(\alpha \in \mathbb{N}^n_0\) aus F
+	mit \(a_{\alpha} \neq 0\). Dann folgt mit Lemma~\ref{tupelvergleich}, dass
+	\(N(\alpha) \neq N(\alpha')\) für \(\alpha, \alpha' \in \mathbb{N}^n_0\) und
+	\(\alpha \neq \alpha'\). Setzen wir nun
+	\( r_i := r^{n-i} \text{ und } Y_i := X_i - X_n^{r_i}
+	\text{ für } i \in \underline{n-1}\). Dann gilt für ein Monom \(X^{\alpha}\),
+	dass \begin{align*}
+	X^{\alpha} &= X_1^{\alpha_1}\cdots X_{n}^{\alpha_n} \\
+	&= (Y_1 + X_n^{r_1})^{\alpha_1} \cdots (Y_{n-1} + X_n^{r_{n-1}})^{\alpha_{n-1}}X_n^{\alpha_n} \\
+	&= X_n^{r_1\alpha_1 + \ldots + r_{n-1}\alpha_{n-1} + \alpha_n} + \sum_{i=0}^{N-1} h_iX_n \\
+	&= X_n^{N(\alpha)} + \sum_{i=0}^{N(\alpha)-1} h_iX_n
+	\end{align*}
+	mit \(h_i \in k[Y_1, \ldots, Y_{n-1}]\). Sei \(N = max\{N(\alpha)\;|\;a_{\alpha}
+	\neq 0\}\), dann kann man F schreiben als
+	\begin{displaymath} \tilde{F} = \lambda X_n^N + \sum_{i=0}^{N-1} h_iX_n.
+	\end{displaymath}
+	Setzen wir num \(y_i := a_i - a_n^{r_i}\) für \(i \in \underline{n-1}\).
+	Dann ist \(R := k[y_1,\ldots,y_{n-1}] \subseteq A\) ein Teilring von A.
+	Sei außerdem \(g := \tilde{F}(y_1,\ldots,y_{n-1},X_n) \in R[X_n]\).
+	Es ist \(g \neq 0\) und \(g(a_n) = 0\). Also liefert \(\frac{1}{\lambda}g\)
+	die ganze Abhängigkeit von \(a_n\) in R.
+
+	Die Elemente \(y_1,\ldots,y_{n-1}\) sind ganz über R, also auch \(a_1,\ldots,
+	a_{n-1}\), da \(a_i = y_i + a_n^{r_i}\) für \(i \in \underline{n-1}\).
+	Also ist mit Korollar~\ref{2.1.2}(~\ref{2.1.2 a}) A ganz über R. Falls
+	\(a_1,\ldots,a_{n-1}\) algebraisch ist, folgt die Behauptung direkt, sonst
+	per Induktion.
+	\end{proof}
 
 	\begin{satz}[Schwache Form von Hilbert's Nullstellensatz]
 	Sei k algebraisch abgeschlossen. Dann sind die maximalen Ideale in
