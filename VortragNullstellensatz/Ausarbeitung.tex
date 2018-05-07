@@ -83,22 +83,22 @@
 	(\(3 \Rightarrow 1\)): Seien \(c_1, \ldots, c_n \in C\) mit \(C =
 	\sum_{i=1}^n Ac_i\). Es gilt \(b \in A[b] \subseteq C\), also auch \(bc_i
 	\in C\) und es existieren die \(a_{ij} \in A\) mit \(bc_i = \sum_{j=1}^n
-	a_{ij}c_i\). Sei \(A \in A^{n\times n}\) eine Matrix mit \((A)_{i,j} =
+	a_{ij}c_i\). Sei \(M \in A^{n\times n}\) eine Matrix mit \((M)_{i,j} =
 	a_{ij}\) für alle \(i, j \in \underline{n}\) und \(v \in A^n\) der Vektor
 	mit \(v_i = c_i\) wie oben. Dann entsprechen die obigen Gleichungen dem
 	Gleichungssystem
-	\begin{displaymath}Av = bv \Leftrightarrow (A-I_n)v = 0.\end{displaymath}
-	Die Cramersche Regel besagt, dass \(v_i = \frac{Det((A-I_n)_i)}{Det(A-I_n)}
-	\Leftrightarrow v_iDet(A-I_n) = Det((A-I_n)_i)\), wobei in die Matrix
-	\((A-I_n)_i \) in unserem Fall nur Nullen in der i-ten Spalte stehen. Also
-	gilt \begin{displaymath} Det((A-I_n)_i) = 0 \Rightarrow v_iDet(A-I_n) = 0.
+	\begin{displaymath}Mv = bv \Leftrightarrow (M-I_n)v = 0.\end{displaymath}
+	Die Cramersche Regel besagt, dass \(v_i = \frac{Det((M-I_n)_i)}{Det(M-I_n)}
+	\Leftrightarrow v_iDet(M-I_n) = Det((M-I_n)_i)\), wobei in die Matrix
+	\((M-I_n)_i \) in unserem Fall nur Nullen in der i-ten Spalte stehen. Also
+	gilt \begin{displaymath} Det(M-I_n)_i) = 0 \Rightarrow v_iDet(M-I_n) = 0.
 	\end{displaymath}
-	Wir müssen noch zeigen, dass daraus \(Det(A-I_n) = 0\) folgt, denn dann 
+	Wir müssen noch zeigen, dass daraus \(Det(M-I_n) = 0\) folgt, denn dann 
 	können wir die Determinante ausschreiben und \(1, b, \ldots\) wird linear
 	abhängig über A, also ist b ganz über A. \\
 	Es ist \(1 \in C\), also existiert eine Linearkombination \(1 =
 	\sum_{i=1}^n a_ic_i \Leftrightarrow Det(M-I_n) = \sum_{i=1}^n
-	a_ic_iDet(M-I_n) = 0\). Also gilt \(Det(A-I_n) = 0\) und die
+	a_ic_iDet(M-I_n) = 0\). Also gilt \(Det(M-I_n) = 0\) und die
 	Behauptung folgt.
 	\end{proof}
 
@@ -128,8 +128,9 @@
 	ganz über \(B_{i-1}\) für jedes \(i \in \underline{n+1}\). Nach
 	Induktionsvoraussetzung wissen wir, dass \(B_n\) endlich erzeugter A-Modul
 	und ganz über A ist. Außerdem ist \(b_{n+1}\) ganz über \(B_n\) und damit
-	auch \(B_n[b_{n+1}] \cong B_{n+1}\) endlich erzeugter A-Modul und \colorbox{red}{TODO}
-	\item Zu zeigen ist nach Untergruppenkriterium, dass für \(b, b' \in 
+	auch \(B_n[b_{n+1}] \cong B_{n+1}\) endlich erzeugter A-Modul und \(B_{n+1}\)
+	ganz über A.
+	\item Zu zeigen ist nach dem Unterringkriterium, dass für \(b, b' \in 
 	\overline{A}_B\) auch \(bb', b-b' \in \overline{A}_B\) und \(1 \in
 	\overline{A}_B\). \\
 	Die \(1\) ist offensichtlich ganz über A, also gilt \(1 \in \overline{A}_B\).
@@ -155,9 +156,6 @@
 	Also ist A ein Körper.
 	\end{enumerate}
 	\end{proof}
-
-	Eine k-Algebra ist im Folgenden immer eine kommutative, assoziative
-	k-Algebra mit Eins.
 	
 	\begin{lemma}\label{tupelvergleich}
 	Sei \(M \subseteq \mathbb{N}^n_0\) und \(N(\alpha) = \sum^{n-1}_{i=0}
@@ -165,6 +163,9 @@
 	als jede Komponente jedes Elements aus M. Dann gilt für \(\alpha, \alpha'
 	\in M_n\) und \(\alpha \neq \alpha'\), dass \(N(\alpha) \neq N(\alpha')\).
 	\end{lemma}
+
+	Eine k-Algebra ist im Folgenden immer eine kommutative, assoziative
+	k-Algebra mit Eins.
 
 	\begin{proof}[Beweis]
 	Wir führen eine Induktion über \(n \in \mathbb{N}\).
@@ -193,7 +194,7 @@
 	folgt insgesamt per Induktion die Behauptung.
 	\end{proof}
 
-	\begin{satz}[Noetherscher Normalisierungssatz]
+	\begin{satz}[Noetherscher Normalisierungssatz] \label{2.1.4}
 	Sei A eine endlich erzeugte k-Algebra. Dann existieren algebraisch
 	unabhängige Elemente \(a_1, \ldots, a_d \in A\), so dass A ganz ist über
 	dem Teilring \(k[a_1, \ldots, a_d]\).
@@ -201,7 +202,7 @@
 
 	\begin{proof}[Beweis]
 	Da A eine endlich erzeugte k-Algebra ist, existieren \(a_1,\ldots,a_n\) mit
-	\(A = k[a_1,\ldots,a_n]\), \(a_i \in A\). Wir führen nun eine Induktion
+	\(A = k[a_1,\ldots,a_n]\). Wir führen nun eine Induktion
 	über \(n \in \mathbb{N}\).
 
 	Sei \(n=0\). Dann ist \(A=k\) und die Behauptung folgt.
@@ -230,12 +231,12 @@
 	dass \begin{align*}
 	X^{\alpha} &= X_1^{\alpha_1}\cdots X_{n}^{\alpha_n} \\
 	&= (Y_1 + X_n^{r_1})^{\alpha_1} \cdots (Y_{n-1} + X_n^{r_{n-1}})^{\alpha_{n-1}}X_n^{\alpha_n} \\
-	&= X_n^{r_1\alpha_1 + \ldots + r_{n-1}\alpha_{n-1} + \alpha_n} + \sum_{i=0}^{N-1} h_iX_n \\
-	&= X_n^{N(\alpha)} + \sum_{i=0}^{N(\alpha)-1} h_iX_n
+	&= X_n^{r_1\alpha_1 + \ldots + r_{n-1}\alpha_{n-1} + \alpha_n} + \sum_{i=0}^{N-1} h_iX_n^i \\
+	&= X_n^{N(\alpha)} + \sum_{i=0}^{N(\alpha)-1} h_iX_n^i
 	\end{align*}
 	mit \(h_i \in k[Y_1, \ldots, Y_{n-1}]\). Sei \(N = max\{N(\alpha)\;|\;a_{\alpha}
 	\neq 0\}\), dann kann man F schreiben als
-	\begin{displaymath} \tilde{F} = \lambda X_n^N + \sum_{i=0}^{N-1} h_iX_n.
+	\begin{displaymath} \tilde{F} = \lambda X_n^N + \sum_{i=0}^{N-1} h_iX_n^i.
 	\end{displaymath}
 	Setzen wir num \(y_i := a_i - a_n^{r_i}\) für \(i \in \underline{n-1}\).
 	Dann ist \(R := k[y_1,\ldots,y_{n-1}] \subseteq A\) ein Teilring von A.
@@ -250,12 +251,53 @@
 	per Induktion.
 	\end{proof}
 
-	\begin{satz}[Schwache Form von Hilbert's Nullstellensatz]
+	\begin{lemma}\label{hilfslemma}
+	Sei A ein Körper, \(R = k[a_1, \ldots, a_n]\) ein Ring mit \(a_1, \ldots,
+	a_n \in A\) algebraisch unabhängig in k und A ganz über R.
+	Dann ist R ein Körper und \(d = 0\).
+	\end{lemma}
+
+	\begin{proof}[Beweis]
+	Nach Korollar~\ref{2.1.2} (4) ist R ein Körper. Angenommen \(d > 0\).
+	Da R ein Körper ist, existiert ein Element \(e_1 \in k\) mit \(e_1a_1 = 1\),
+	also gilt \(e_1a_1 - 1 = 0\) und \(a_1\) ist nicht algebraisch unabhängig in k.
+	Also folgt \(d = 0\).
+	\end{proof}
+
+	\begin{satz}[Schwache Form von Hilbert's Nullstellensatz]\label{schwach}
 	Sei k algebraisch abgeschlossen. Dann sind die maximalen Ideale in
 	\(k[X_1, \ldots, X_n]\) genau die Ideale der Form \((X_1-v_1,\ldots,
 	X_n-v_n)\) mit \(v_i \in k\). Allgemeiner gilt, falls A eine beliebige
 	k-Algebra ist, dass \(A/I \cong k\) für jedes maximale Ideal I in A.
 	\end{satz}
+
+	\begin{proof}[Beweis]
+	Wir betrachten \(k[X_1, \ldots, X_n]\) und das Ideal \(I = (X_1 - v_i,
+	\ldots, X_n - v_n)\). I ist maximal, weil \(k[X_1, \ldots, X_n]/I \cong k\).
+
+	Andersrum sei I ein maximales Ideal und \(A := k[X_1, \ldots, X_n]/I\).
+	Dann ist A ein Körper und also auch eine endlich erzeugte k-Algebra. Also
+	existieren algebraisch unabhängige \(a_1, \ldots, a_d \in A\), so dass
+	der Körper A nach Satz~\ref{2.1.4} ganz über \(R := k[a_1,\ldots, a_d]\) ist.
+	Nach Lemma~\ref{hilfslemma} ist \(d = 0\).
+	Also folgt \(R = k\) und \(A\) ist eine endliche algebraische Erweiterung von
+	\(R\). Da k algebraisch abgeschlossen ist, folgt damit \(A = k\).
+	Damit existieren für alle \(i \in \underline{n}\) \(v_i \in k\) mit
+	\((X_i - v_i) \in I\) und \(I = (X_1 - v_1, \ldots, X_n - v_n)\).
+	\end{proof}
+
+	\begin{korollar}[Umformulierung der schwachen Form von Hilbert's Nullstellensatz]
+	Sei k algebraisch abgeschlossen und I ein Ideal aus dem Polynomring \(R :=
+	k[X_1,\ldots,X_n]\) mit \(I \neq R\). Dann ist die Varietät \(V(I)\) nicht leer.
+	\end{korollar}
+
+	\begin{proof}[Beweis]
+	Nach Satz~\ref{schwach} existiert ein maximales Ideal M mit \(I \unlhd M \unlhd R\)
+	und \(M = (X_1 - v_1, \ldots, X_n - v_n)\) für ein \(v \in k^n\). Also ist
+	\(v \in V(M)\). Aus vorherigen Vorträgen wissen wir, dass aus \(I \subseteq M\) folgt,
+	dass \(V(M) \subseteq V(I)\). Da \(v \in V(M)\), gilt also auch \(v \in V(I)\)
+	und \(V(I) \neq \emptyset\).
+	\end{proof}
 
 
 \section{Normale Form}

@@ -77,6 +77,13 @@
 	\end{enumerate}
 	\end{korollar}
 
+	\begin{lemma}\label{tupelvergleich}
+	Sei \(M \subseteq \mathbb{N}^n_0\) und \(N(\alpha) = \sum^{n-1}_{i=0}
+	\alpha_{n-i}r^i\) für ein \(r \in \mathbb{N}\), das größer ist
+	als jede Komponente jedes Elements aus M. Dann gilt für \(\alpha, \alpha'
+	\in M_n\) und \(\alpha \neq \alpha'\), dass \(N(\alpha) \neq N(\alpha')\).
+	\end{lemma}
+
 	Eine k-Algebra ist im Folgenden immer eine kommutative, assoziative
 	k-Algebra mit Eins.
 
@@ -86,11 +93,22 @@
 	dem Teilring \(k[a_1, \ldots, a_d]\).
 	\end{satz}
 
+	\begin{lemma}\label{hilfslemma}
+	Sei A ein Körper, \(R = k[a_1, \ldots, a_n]\) ein Ring mit \(a_1, \ldots,
+	a_n \in A\) algebraisch unabhängig in k und A ganz über R.
+	Dann ist R ein Körper und \(d = 0\).
+	\end{lemma}
+
 	\begin{satz}[Schwache Form von Hilbert's Nullstellensatz]
 	Sei k algebraisch abgeschlossen. Dann sind die maximalen Ideale in
 	\(k[X_1, \ldots, X_n]\) genau die Ideale der Form \((X_1-v_1,\ldots,
 	X_n-v_n)\) mit \(v_i \in k\). Allgemeiner gilt, falls A eine beliebige
 	k-Algebra ist, dass \(A/I \cong k\) für jedes maximale Ideal I in A.
 	\end{satz}
+
+	\begin{korollar}[Umformulierung der schwachen Form von Hilbert's Nullstellensatz]
+	Sei k algebraisch abgeschlossen und I ein Ideal aus dem Polynomring \(R :=
+	k[X_1,\ldots,X_n]\) mit \(I \neq R\). Dann ist die Varietät \(V(I)\) nicht leer.
+	\end{korollar}
 
 \end{document}
