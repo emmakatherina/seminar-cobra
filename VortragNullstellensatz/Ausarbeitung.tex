@@ -17,6 +17,7 @@
 \newtheorem{lemma}[satz]{Lemma}
 \newtheorem{proposition}[satz]{Proposition}
 \newtheorem{korollar}[satz]{Korollar}
+\newcommand*{\R}{k[X_{1},\ldots,X_{n}]}
 
 \title{Hilbert's Nullstellensatz}
 \date{\today}
@@ -28,26 +29,59 @@
 %\tableofcontents
 
 \section{Abstract}
+
+	Varietäten sind die Nullstellenmengen von Idealen aus einem Polynomring. Wir wollen hier die Beziehung zwischen der Menge der Varietäten und der Menge der Ideale charakterisieren und werden
+	eine Bijektion zwischen der Menge der Varietäten und der Menge der Wurzelideale finden. 
+	Dafür beweisen wir Hilbert's Nullstellensatz und schauen uns im Anschluss Anwendungen davon an.
+
 \section{Einleitung}
-\section{Hyperebenen}
+
+	Sei \(S \subseteq \R\) eine Teilmenge eines Polynomrings über einem algebraisch abgeschlossenen
+	Körper k. Dann ist \(V(S) := \{x \in k^n\,|\, f(x)=0\; \forall f \in S\}\) eine Varietät bzw.
+	algebraische Menge. Andersherum nennt man für eine Teilmenge \(V \subseteq k^{n}\) das 
+	Ideal \(I(V) := \{f \in \R\,|\, f(x)=0\; \forall x\in V\}\) das Verschwindungsideal von V.
+	Hier definiert man die Abbildungen
+	\begin{displaymath} \mathbf{I}: \{ V \subseteq k^n\,|\, V \text{algebraisch}\} \rightarrow \{ I \unlhd k[X_1, \ldots, X_n]\},\; V \mapsto \{f \in k[X_1, \ldots, X_n]\,|\, f(v) = 0 \; \forall v \in V\} \end{displaymath}
+	und \begin{displaymath} \mathbf{V}: \{ I \unlhd k[X_1, \ldots, X_n]\} \rightarrow \{ V \subseteq k^n\,|\, V \text{algebraisch}\},\; I \mapsto \{v \in k\,|\, f(v) = 0 \; \forall f \in I\}. \end{displaymath}
+	Nach \cite{Geck} sind die Abbildungen wohldefiniert und es gilt für \(S' \subseteq S \subseteq k[X_1,\ldots,X_n]\), dass \(\mathbf{V}(S) \subseteq \mathbf{V}(S')\) und für \(V' \subseteq V \subseteq k^n\), dass \(\mathbf{I}(V) \subseteq \mathbf{I}(V')\). \(\mathbf{V}\) und \(\mathbf{I}\) sind also inklusionsumkehrend und nach \cite{CLOS} ist \(\mathbf{V}\) surjektiv und \(\mathbf{I}\) injektiv.
+
+	Betrachten wir beispielhaft \(I := \langle X^2 - 2X + 1\rangle \subseteq \mathbb{R}[X]\).
+	Dann ist \(\mathbf{V}(I) = \{-1\} \subseteq \mathbb{R}\) die zugehörige Nullstellenmenge.
+	Außerdem ist \(\sqrt{I} = \langle X-1\rangle \supseteq \langle (X-1)^2\rangle = I\) und
+	\(\mathbf{V}(\sqrt{I}) = \{-1\}\), also
+	\begin{displaymath}\mathbf{V}(I) = \mathbf{V}(\sqrt{I}).\end{displaymath}
+	Andersrum ist \(\mathbf{I}(\{-1\}) = \sqrt{I}\), aber es existiert keine Teilmenge \(V \subseteq \mathbb{R}\) mit \(\mathbf{I}(V) = I\).
 	
-	\begin{satz}[Hilbert's Nullstellensatz für Hyperebenen]
-	Sei k algebraisch abgeschlossen, \(f \in k[X_1,\ldots,X_n]\) nicht
-	konstant und \(\emptyset \neq H_f \subseteq k^n\) die korrespondierende
-	Hyperebene. Wir können f schreiben als \(f = f_1^{n_1}\cdots f_r^{n_r}\)
-	mit \(f_1,\ldots,f_r\) irreduzibel und paarweise teilerfremd. Dann ist
-	\begin{displaymath} H_f = H_{f_1} \cup \cdots \cup H_{f_r} \text{und }
-	\mathbf{I}(H_f) = (f_1\cdots f_r). \end{displaymath}
-	Insbesondere gilt, falls f irreduzibel ist, dass \(\mathbf{I}(H_f) = (f)\).
-	\end{satz}
+	Wir definieren uns nun das Wurzelideal eines Ideals \(I\) als kleinestes Ideal \(\sqrt{I} \subseteq k[X_1,\ldots,X_n]\) mit \(I \subseteq \sqrt{I}\) und für \(f^m \in \sqrt{I}\) für ein
+	\(m \in \mathbb{N}\) folgt, dass \(f \in \sqrt{I}\). Im Folgenden werden wir zeigen, dass
+	\(\mathbf{V}\) und \(\mathbf{I}\) bijektiv werden, wenn wir die Definitionsmenge bzw. die Bildmenge auf die Menge der Wurzelideale einschränken. Die beiden Abbildungen sind dann jeweils 
+	invers zueinander und wir haben eine bijektive Beziehung zwischen der Menge der Wurzelideale und
+	der Menge der entsprechenden Varietäten.
+	
+	Bevor wir uns die starke Form von Hilbert's Nullstellensatz anschauen, aus der die obige Bijektion folgt, beweisen wir jedoch erst die schwache und normale Form des Satzes.
 
 \section{Schwache Form}
-
+	%
+	Wir beginnen zunächst mit der schwachen Form von Hilbert's Nullstellensatz,
+	das heißt wir beweisen, dass die Varietät eines maximalen Ideals aus dem Polynomring \(k[X_1,\ldots,X_n]\) ein Punkt \(v \in k^n\) ist.
+	Dafür wiederholen wir grundlegende Definitionen, beweisen eine Form des Noetherschen Normalisierungssatzes und folgern daraus dann schließlich die schwache Version von Hilbert's Nullstellensatz. 
+	%
+	
+	%
+	Fangen wir mit der Definiton von algebraisch unabhängigen Elementen in einer
+	k-Algebra an, welche wir für den Noetherschen Normalisierungssatz brauchen werden.
+	%
+	
 	\begin{definition}[Algebraische Elemente]
 	Sei A eine k-Algebra. Dann heißt die Menge \(a_1,\ldots, a_m \in A\)
 	algebraisch unabhängig, falls kein Polynom \(0 \neq F \in k[X_1,\ldots,X_m]
 	\) existiert mit \(F(a_1,\ldots,a_m) = 0\).
 	\end{definition}
+
+	Sei zum Beispiel \(A:=\mathbb{Q}\). Dann sind \(\pi\) und \(e\) (die Eulersche Zahl) algebraisch unabhängig, da beide Elemente transzendent in \(\mathbb{Q}\) sind. Die Elemente \(\pi\) und \(\sqrt{2}\) sind jedoch algebraisch abhängig, da
+	für \(f(X,Y) := Y^2 - 2 \neq 0\) gilt, dass \(f(\pi,\sqrt{2}) = 0\).
+	
+	Ebenfalls für den Noetherschen Normalisierungssatz benötigen wir die Definition von ganzen Elementen. Hierbei handelt es sich um eine Verallgemeinerung von algebraischen Elementen. \\
 
 	Im Folgenden sind A und B kommmutative Ringe mit Eins und \(A \subseteq B\).
 
@@ -59,6 +93,11 @@
 	Außerdem heißt B ganz über A, wenn jedes Element aus B ganz über A ist.
 	\end{definition}
 
+	Zum Beispiel sind \(\sqrt{2}\) und \(\sqrt{3}\) ganz über \(\mathbb{Q}\), \(\pi\) jedoch nicht. Es ist \(\mathbb{Q}[\sqrt{2}]\) eine Ringerweiterung von \(\mathbb{Q}\).
+	
+	Wir wollen nun kurz allgemeine Eigenschaften von Ringerweiterungen mit ganzen
+	Elementen betrachten und beweisen dazu die folgenden Äquivalenzen.
+		
 	\begin{lemma} \label{2.1.1}
 	Sei \(b \in B\). Dann ist äquivalent:
 	\begin{enumerate}
@@ -101,6 +140,15 @@
 	a_ic_iDet(M-I_n) = 0\). Also gilt \(Det(M-I_n) = 0\) und die
 	Behauptung folgt.
 	\end{proof}
+	
+	Sei nun wieder \(A := \mathbb{Q}\) und \(b:=\sqrt{2}\). Dann ist \(\mathbb{Q}[\sqrt{2}]\) ganz über \(\mathbb{Q}\) nach dem vorherigen Lemma. Wir wissen,
+	dass auch \(\sqrt{3}\) ganz über \(\mathbb{Q}\) ist. Wir zeigen gleich, dass
+	dann auch \(\mathbb{Q}[\sqrt{2},\sqrt{3}]\) ganz über \(\mathbb{Q}\) ist.
+	Außerdem definieren wir den ganzen Abschluss eines Ring in einem anderen Ring, beweisen, dass die Ganzheit von Ringen zueinander transitiv ist, und zeigen, dass wir für die Ringe \(A, B\) mit \(B\) ganz über \(A\) und \(B\) ein
+	Körper folgern können, dass auch \(A\) ein Körper ist.
+	
+	Nachdem wir diese Folgerungen aus dem obigen Lemma gezeigt haben, beweisen wir noch ein sehr technisches, aber kurzes Lemma und können uns dann endlich dem 
+	Noetherschen Normalisierungslemma widmen.
 
 	\begin{korollar} \label{2.1.2}
 	Seien A, B kommutative Ringe mit \(A \subseteq B\).
@@ -157,6 +205,9 @@
 	\end{enumerate}
 	\end{proof}
 	
+	Im Beweis des Noetherschen Normalisierungssatzes betrachten wir Tupel,
+	welche auf natürliche Zahlen abgebildet werden. Nun wollen wir aus der Gleichheit der natürlichen Zahlen folgern können, dass auch die Tupel gleich sind. Dafür benutzen wir das folgende Lemma. (Die erwähnte Abbildung ist \(N\).) 
+	
 	\begin{lemma}\label{tupelvergleich}
 	Sei \(M \subseteq \mathbb{N}^n_0\) und \(N(\alpha) = \sum^{n-1}_{i=0}
 	\alpha_{n-i}r^i\) für ein \(r \in \mathbb{N}\), das größer ist
@@ -194,6 +245,11 @@
 	folgt insgesamt per Induktion die Behauptung.
 	\end{proof}
 
+	Damit kommen wir nun endlich zu dem Satz mit dessen Hilfe wir die schwache 
+	Form von Hilbert's Nullstellensatz beweisen werden. Wir zeigen also, dass 
+	wir für jede endlich erzeugte k-Algebra \(A\) einen Teilring finden, über 
+	dem \(A\) ganz ist.
+	
 	\begin{satz}[Noetherscher Normalisierungssatz] \label{2.1.4}
 	Sei A eine endlich erzeugte k-Algebra. Dann existieren algebraisch
 	unabhängige Elemente \(a_1, \ldots, a_d \in A\), so dass A ganz ist über
@@ -238,7 +294,7 @@
 	\neq 0\}\), dann kann man F schreiben als
 	\begin{displaymath} \tilde{F} = \lambda X_n^N + \sum_{i=0}^{N-1} h_iX_n^i.
 	\end{displaymath}
-	Setzen wir num \(y_i := a_i - a_n^{r_i}\) für \(i \in \underline{n-1}\).
+	Setzen wir nun \(y_i := a_i - a_n^{r_i}\) für \(i \in \underline{n-1}\).
 	Dann ist \(R := k[y_1,\ldots,y_{n-1}] \subseteq A\) ein Teilring von A.
 	Sei außerdem \(g := \tilde{F}(y_1,\ldots,y_{n-1},X_n) \in R[X_n]\).
 	Es ist \(g \neq 0\) und \(g(a_n) = 0\). Also liefert \(\frac{1}{\lambda}g\)
@@ -250,19 +306,26 @@
 	\(a_1,\ldots,a_{n-1}\) algebraisch ist, folgt die Behauptung direkt, sonst
 	per Induktion.
 	\end{proof}
+	
+	Damit der Beweis zur schwachen Form von Hilbert's Nullstellensatz nicht
+	zu lang wird, betrachten wir hier noch ein kleines Hilfslemma, welches das
+	Ergebnis aus Korollar~\ref{2.1.2}(4) mit dem Noetherschen Normalisierungslemma verbinden.
 
 	\begin{lemma}\label{hilfslemma}
 	Sei A ein Körper, \(R = k[a_1, \ldots, a_n]\) ein Ring mit \(a_1, \ldots,
 	a_n \in A\) algebraisch unabhängig in k und A ganz über R.
-	Dann ist R ein Körper und \(d = 0\).
+	Dann ist R ein Körper und damit \(n = 0\).
 	\end{lemma}
 
 	\begin{proof}[Beweis]
-	Nach Korollar~\ref{2.1.2} (4) ist R ein Körper. Angenommen \(d > 0\).
+	Nach Korollar~\ref{2.1.2} (4) ist R ein Körper. Angenommen \(n > 0\).
 	Da R ein Körper ist, existiert ein Element \(e_1 \in k\) mit \(e_1a_1 = 1\),
 	also gilt \(e_1a_1 - 1 = 0\) und \(a_1\) ist nicht algebraisch unabhängig in k.
-	Also folgt \(d = 0\).
+	Also folgt \(n = 0\).
 	\end{proof}
+	
+	Nun können wir endlich die schwache Form von Hilbert's Nullstellensatz beweisen, welche uns
+	zum Beispiel sagt, dass die Varietät eines jeden Ideals \(I \subsetneq k[X_1,\ldots,X_n]\) nicht leer ist.
 
 	\begin{satz}[Schwache Form von Hilbert's Nullstellensatz]\label{schwach}
 	Sei k algebraisch abgeschlossen. Dann sind die maximalen Ideale in
@@ -285,6 +348,8 @@
 	Damit existieren für alle \(i \in \underline{n}\) \(v_i \in k\) mit
 	\((X_i - v_i) \in I\) und \(I = (X_1 - v_1, \ldots, X_n - v_n)\).
 	\end{proof}
+	
+	Wir wissen jetzt also, dass die Varietät eines maximalen Ideals \(I \subseteq 		k[X_1,\ldots,X_n]\) ein Punkt \(v \in k^n\) ist. Daraus können wir jetzt direkt noch folgern, dass die Varietät jedes echten Ideals des Polynomrings nicht-leer ist.
 
 	\begin{korollar}[Umformulierung der schwachen Form von Hilbert's Nullstellensatz]
 	Sei k algebraisch abgeschlossen und I ein Ideal aus dem Polynomring \(R :=
@@ -299,9 +364,24 @@
 	und \(V(I) \neq \emptyset\).
 	\end{proof}
 
+	Hiermit haben wir die schwache Form von Hilbert's Nullstellensatz bewiesen. Damit können wir jetzt relativ einfach die normale und starke Form beweisen und folgern schließlich, dass eine Bijektion zwischen den Wurzelidealen eines Polynomrings und den zugehörigen Varietäten existiert.
 
 \section{Normale Form}
 \section{Starke Form}
 \section{Anwendung}
+
+\begin{thebibliography}{99}
+	\bibitem{CLOS}
+	\textsc{Cox}, David; \textsc{Little}, John; \textsc{O'Shea}, Donal:
+	\newblock \emph{Ideals, Varieties, and Algorithms}.
+	\newblock Third Edition
+	\newblock Springer-Verlag, 2007
+	
+	\bibitem{Geck}
+	\textsc{Geck}, Meinolf:
+	\newblock \emph{An introduction to algebraic geometry and algebraic groups}
+	\newblock Clarendon Press - Oxford, 2003
+\end{thebibliography}
+
 
 \end{document}
