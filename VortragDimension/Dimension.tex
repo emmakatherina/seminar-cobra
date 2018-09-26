@@ -41,6 +41,16 @@
 %\tableofcontents
 
 \section{Abstract}
+	
+	Varietäten sind die Nullstellenmengen von Idealen aus einem Polynomring. Im Folgenden 
+	charakterisieren wir
+	die Dimension einer Varietät, indem wir das Hilbertpolynom des zugehörigen Ideals
+	definieren und zeigen, dass der Grad des Hilbertpolynoms der Dimension der Varietät entspricht.
+	Dafür zeigen wir unter anderem, dass der Grad der Hilbertpolynome für alle Ideale mit 
+	gleicher Nullstellenmenge identisch ist.
+	Hierdurch erlangen wir ein tieferes Verständnis für die Zusammenhänge zwischen Punktmengen und
+	Polynomringen, also auch zwischen Algebra und Geometrie.
+	
 \section{Einleitung}
 	
 	Sei \(S \subseteq \R\) eine Teilmenge eines Polynomrings über einem algebraisch abgeschlossenen
@@ -56,14 +66,14 @@
 
 	\begin{figure}[ht]
 		\centering
-%		\includegraphics[width=.75\linewidth]{circle.png}
+		\includegraphics[width=.75\linewidth]{circle.png}
 		\caption{Die Varietät \(V(X^2 + Y^2 -1)\) aus \cite{CLOS}}
 		\label{circle}
 	\end{figure}
 
 	\begin{figure}[ht]
 		\centering
-%		\includegraphics[width=.5\linewidth]{paraboloid.png}
+		\includegraphics[width=.5\linewidth]{paraboloid.png}
 		\caption{Das elliptische Paraboloid \(V(Z - X^2 -Y)\) aus \cite{CLOS}}
 		\label{paraboloid}
 	\end{figure}
@@ -131,7 +141,7 @@
 	\), also folgt \(g_{i} = g_{r}\).
 	\end{proof}
 
-	Lemma~\ref{1.2.4} sagt uns insbesondere, dass in jeder abzählbaren Menge von Mnomen ein
+	Lemma~\ref{1.2.4} sagt uns insbesondere, dass in jeder abzählbaren Menge von Monomen ein
 	kleinstes Element existiert.
 	
 
@@ -198,7 +208,7 @@
 
 	\begin{figure}[ht]
 		\centering
-%		\includegraphics[width=.75\linewidth]{Dots.png}
+		\includegraphics[width=.75\linewidth]{Dots.png}
 		\caption{Anschauliche Darstellung von \(\R/I\) aus \cite{CLOS}}
 		\label{dots}
 	\end{figure}
@@ -206,6 +216,10 @@
 
 \section{Die Hilbertfunktion}
 
+	In diesem Abschnitt definieren wir uns die sogenannte Hilbertfunktion. Diese Funktion bildet eine natürliche Zahl auf die Dimension eines Faktorvektorraums ab. Bevor wir im nächsten Abschnitt beweisen, dass jede Hilbertfunktion einem Polynom entspricht, werden wir jetzt schon anhand von Beispielen sehen, dass der Grad des jeweiligen Polynoms der ``intuitiven'' Dimension der Varietät des Ideals entspricht, welches als Faktor für den Faktorvektorraum benutzt wurde.
+	
+	Anschließend beweisen wir noch das Lemma von Macaulay, welches besagt, dass die Hilbertfunktion zu dem Ideal \(I \subseteq \R\) die selbe ist wie die Hilbertfunktion zu dem Ideal \(LT(I)\). Damit vereinfachen wir die nachfolgenden Überlegungen und sehen auch, warum wir uns in einem der Beispiele Abb.~\ref{dots} anschauen und alle anderen Informationen über das unterliegende Ideal vernachlässigen können.
+	
 	\begin{definition} \label{1.2.11}
 	Sei \(I \subseteq \R\) ein Ideal und \(s \in \mathbb{N}_{0}\). Dann definiere \(I_{\leq s} :=
 	I \cap \R_{\leq s}\). Nun gilt, dass \(\R_{\leq s}\) ein endlich dimensionaler Vektorraum über
@@ -215,6 +229,7 @@
 	von I genannt wird.
 	\end{definition}
 
+	Nun wollen wir uns ein paar beispielhafte Hilbertfunktionen anschauen. Für eines der Beispiel brauchen wir ein bisschen Kombinatorik, die wir im nächsten Lemma beweisen wollen. Und zwar wollen wir eine Aussage über die Anzahl der Tupel aus \(\mathbb{N}^n_0\) machen, welche vom Betrag kleiner sind als eine bestimmte natürliche Zahl \(s\).
 	
 	\begin{lemma}\label{kombinatorik}
 	Es gilt \(|M_{n,s}| := |\{\alpha \in \mathbb{N}^{n}_{0}\; |\; |\alpha| \leq s \}| = \binom{s + n}{s}. \)
@@ -281,7 +296,7 @@
 	aus Abb.~\ref{dots} gilt \(V(I) = \{(x,y) \in k^2\;|\; y = 0\} = H_y\). Also ist \(V(I)\)
 	intuitiv eindimensional, was ebenfalls dem Grad der Hilbertfunktion entspricht.
 
-	Diese Vermutungen wollen wir jetzt beweisen.
+	Im nächsten Lemma zeigen wir erst einmal, dass es keinen Unterschied macht, ob wir die Hilbertfunktion bezüglich des Ideals \(I\) oder des Ideals \(LT(I)\) betrachten.
 
 	\begin{lemma}[Macaulay] \label{1.2.13}
 	Sei \(\preceq\) eine gradierte lexikographische Monomialordnung und \(I \subseteq \R\) ein
@@ -668,7 +683,6 @@ In Bsp 1.2.6 $c)$ wurde gezeigt, dass für $V\subseteq k^n$ algebraisch und $W\s
 	Also unsere Annahme muss falsch gewesen sein und es gilt $dim(V)>dim(W)$
 \end{proof}
 
-
 \begin{thebibliography}{99}
 	\bibitem{CLOS}
 	\textsc{Cox}, David; \textsc{Little}, John; \textsc{O'Shea}, Donal:
@@ -682,6 +696,10 @@ In Bsp 1.2.6 $c)$ wurde gezeigt, dass für $V\subseteq k^n$ algebraisch und $W\s
 	\newblock 2. Aufl.
 	\newblock §3, Seite 36
 	
+	\bibitem{Geck}
+	\textsc{Geck}, Meinolf:
+	\newblock \emph{An introduction to algebraic geometry and algebraic groups}
+	\newblock Clarendon Press - Oxford, 2003
 \end{thebibliography}
 
 
